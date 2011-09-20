@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84151E7D142937F800DC271D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84151E7C142937F800DC271D /* UIKit.framework */; };
+		84151E7F142937F800DC271D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84151E7E142937F800DC271D /* Foundation.framework */; };
+		84151E81142937F800DC271D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84151E80142937F800DC271D /* CoreGraphics.framework */; };
+		84151E87142937F800DC271D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84151E85142937F800DC271D /* InfoPlist.strings */; };
+		84151E89142937F800DC271D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84151E88142937F800DC271D /* main.m */; };
+		84151E8D142937F800DC271D /* NeredeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84151E8C142937F800DC271D /* NeredeAppDelegate.m */; };
+		84151E90142937F800DC271D /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84151E8E142937F800DC271D /* MainWindow.xib */; };
+		84151E93142937F800DC271D /* NeredeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84151E92142937F800DC271D /* NeredeViewController.m */; };
+		84151E96142937F800DC271D /* NeredeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84151E94142937F800DC271D /* NeredeViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		84151E78142937F800DC271D /* Nerede.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nerede.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84151E7C142937F800DC271D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		84151E7E142937F800DC271D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		84151E80142937F800DC271D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		84151E84142937F800DC271D /* Nerede-Info.plist */ = {isa = PBXFileReference; path = "Nerede-Info.plist"; sourceTree = "<group>"; };
+		84151E86142937F800DC271D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84151E88142937F800DC271D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84151E8A142937F800DC271D /* Nerede-Prefix.pch */ = {isa = PBXFileReference; path = "Nerede-Prefix.pch"; sourceTree = "<group>"; };
+		84151E8B142937F800DC271D /* NeredeAppDelegate.h */ = {isa = PBXFileReference; path = NeredeAppDelegate.h; sourceTree = "<group>"; };
+		84151E8C142937F800DC271D /* NeredeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeredeAppDelegate.m; sourceTree = "<group>"; };
+		84151E8F142937F800DC271D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		84151E91142937F800DC271D /* NeredeViewController.h */ = {isa = PBXFileReference; path = NeredeViewController.h; sourceTree = "<group>"; };
+		84151E92142937F800DC271D /* NeredeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NeredeViewController.m; sourceTree = "<group>"; };
+		84151E95142937F800DC271D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/NeredeViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84151E75142937F800DC271D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84151E7D142937F800DC271D /* UIKit.framework in Frameworks */,
+				84151E7F142937F800DC271D /* Foundation.framework in Frameworks */,
+				84151E81142937F800DC271D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84151E6D142937F700DC271D = {
+			isa = PBXGroup;
+			children = (
+				84151E82142937F800DC271D /* Nerede */,
+				84151E7B142937F800DC271D /* Frameworks */,
+				84151E79142937F800DC271D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84151E79142937F800DC271D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84151E78142937F800DC271D /* Nerede.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84151E7B142937F800DC271D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84151E7C142937F800DC271D /* UIKit.framework */,
+				84151E7E142937F800DC271D /* Foundation.framework */,
+				84151E80142937F800DC271D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84151E82142937F800DC271D /* Nerede */ = {
+			isa = PBXGroup;
+			children = (
+				84151E8B142937F800DC271D /* NeredeAppDelegate.h */,
+				84151E8C142937F800DC271D /* NeredeAppDelegate.m */,
+				84151E8E142937F800DC271D /* MainWindow.xib */,
+				84151E91142937F800DC271D /* NeredeViewController.h */,
+				84151E92142937F800DC271D /* NeredeViewController.m */,
+				84151E94142937F800DC271D /* NeredeViewController.xib */,
+				84151E83142937F800DC271D /* Supporting Files */,
+			);
+			path = Nerede;
+			sourceTree = "<group>";
+		};
+		84151E83142937F800DC271D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84151E84142937F800DC271D /* Nerede-Info.plist */,
+				84151E85142937F800DC271D /* InfoPlist.strings */,
+				84151E88142937F800DC271D /* main.m */,
+				84151E8A142937F800DC271D /* Nerede-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84151E77142937F800DC271D /* Nerede */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84151E99142937F800DC271D /* Build configuration list for PBXNativeTarget "Nerede" */;
+			buildPhases = (
+				84151E74142937F800DC271D /* Sources */,
+				84151E75142937F800DC271D /* Frameworks */,
+				84151E76142937F800DC271D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nerede;
+			productName = Nerede;
+			productReference = 84151E78142937F800DC271D /* Nerede.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84151E6F142937F700DC271D /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 84151E72142937F700DC271D /* Build configuration list for PBXProject "Nerede" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 84151E6D142937F700DC271D;
+			productRefGroup = 84151E79142937F800DC271D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84151E77142937F800DC271D /* Nerede */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84151E76142937F800DC271D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84151E87142937F800DC271D /* InfoPlist.strings in Resources */,
+				84151E90142937F800DC271D /* MainWindow.xib in Resources */,
+				84151E96142937F800DC271D /* NeredeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84151E74142937F800DC271D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84151E89142937F800DC271D /* main.m in Sources */,
+				84151E8D142937F800DC271D /* NeredeAppDelegate.m in Sources */,
+				84151E93142937F800DC271D /* NeredeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		84151E85142937F800DC271D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84151E86142937F800DC271D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		84151E8E142937F800DC271D /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84151E8F142937F800DC271D /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		84151E94142937F800DC271D /* NeredeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84151E95142937F800DC271D /* en */,
+			);
+			name = NeredeViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84151E97142937F800DC271D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		84151E98142937F800DC271D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84151E9A142937F800DC271D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Nerede/Nerede-Prefix.pch";
+				INFOPLIST_FILE = "Nerede/Nerede-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		84151E9B142937F800DC271D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Nerede/Nerede-Prefix.pch";
+				INFOPLIST_FILE = "Nerede/Nerede-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84151E72142937F700DC271D /* Build configuration list for PBXProject "Nerede" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84151E97142937F800DC271D /* Debug */,
+				84151E98142937F800DC271D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84151E99142937F800DC271D /* Build configuration list for PBXNativeTarget "Nerede" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84151E9A142937F800DC271D /* Debug */,
+				84151E9B142937F800DC271D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84151E6F142937F700DC271D /* Project object */;
+}
