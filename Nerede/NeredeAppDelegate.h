@@ -11,9 +11,11 @@
 @class NeredeViewController;
 
 @interface NeredeAppDelegate : NSObject <UIApplicationDelegate>
-
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-
+{
+    
+}
+@property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, retain) UITabBarController *tabBarController;
 @property (nonatomic, retain) IBOutlet NeredeViewController *viewController;
 
 @end

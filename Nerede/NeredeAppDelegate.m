@@ -9,17 +9,45 @@
 #import "NeredeAppDelegate.h"
 
 #import "NeredeViewController.h"
+#import "MapViewController.h"
 
 @implementation NeredeAppDelegate
 
-@synthesize window = _window;
-@synthesize viewController = _viewController;
+@synthesize window;
+@synthesize tabBarController;
+@synthesize viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-     
-    self.window.rootViewController = self.viewController;
+    
+    //create window object
+    window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    window.backgroundColor = [UIColor redColor];
+    
+    //create tabBarController
+    
+    tabBarController = [[UITabBarController alloc] init];
+
+    UITabBarItem* tabMain = [[UITabBarItem alloc] initWithTitle:@"Arama" image:nil tag:1];
+    UITabBarItem* tabUrunler = [[UITabBarItem alloc] initWithTitle:@"Bul" image:nil tag:2];
+    
+    UIViewController *view1 = [[MapViewController alloc] init];
+    view1.view.backgroundColor = [UIColor yellowColor];
+    view1.tabBarItem = tabMain;
+    
+    MapViewController *view2 = [[UIViewController alloc] init];
+    view2.view.backgroundColor = [UIColor blueColor];
+    view2.tabBarItem = tabUrunler;
+    
+    tabBarController.viewControllers = [NSArray arrayWithObjects:view1,view2, nil];
+    
+    [window addSubview:tabBarController.view];
+    [tabMain release];
+    [tabUrunler release];
+    [view1 release];
+    [view2 release];
+        
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -65,8 +93,9 @@
 
 - (void)dealloc
 {
-    [_window release];
-    [_viewController release];
+    [window release];
+    [viewController release];
+    [tabBarController release];
     [super dealloc];
 }
 
