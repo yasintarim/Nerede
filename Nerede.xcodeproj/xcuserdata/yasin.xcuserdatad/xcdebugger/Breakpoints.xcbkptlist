@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Nerede/MapViewController.m"
-         timestampString = "338763850.5776"
+         timestampString = "338765086.524318"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "153"
-         endingLineNumber = "153"
+         startingLineNumber = "148"
+         endingLineNumber = "148"
          landmarkName = "-findNearestPlace"
          landmarkType = "5">
       </FileBreakpoint>
@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Nerede/MapViewController.m"
-         timestampString = "338681326.146799"
+         timestampString = "338765086.524318"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
          landmarkName = "-findNearestPlace"
          landmarkType = "5">
       </FileBreakpoint>
@@ -65,11 +65,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Nerede/MapViewController.m"
-         timestampString = "338763931.78407"
+         timestampString = "338765086.524318"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "166"
-         endingLineNumber = "166"
+         startingLineNumber = "161"
+         endingLineNumber = "161"
          landmarkName = "-addAnnotations:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -85,6 +85,20 @@
          startingLineNumber = "131"
          endingLineNumber = "131"
          landmarkName = "-populateXmlData"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Nerede/MapViewController.m"
+         timestampString = "338765080.79992"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
+         landmarkName = "-findNearestPlace"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

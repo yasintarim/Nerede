@@ -12,8 +12,7 @@
 
 
 @interface MapViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate>
-{
-}
+
 @property (nonatomic, retain) MKMapView *mapView;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) NSMutableArray *m_places;

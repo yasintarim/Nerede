@@ -144,12 +144,7 @@
 - (void) findNearestPlace
 {
     NSArray *arr = [m_places sortedArrayUsingSelector:@selector(compare:)];
-    
-    
-    Entity *obj = (Entity*)[arr objectAtIndex:0];
-    Entity *obj1 = (Entity*)[arr objectAtIndex:1];
-    NSLog(@"%@", obj);
-    NSLog(@"%@", obj1);
+    NSLog(@"%@", arr);
     [self performSelectorOnMainThread:@selector(addAnnotations:) withObject:arr waitUntilDone:NO];
 }
 

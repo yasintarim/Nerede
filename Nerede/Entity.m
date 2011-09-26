@@ -24,13 +24,13 @@
     return self;
 }
 
--(id)initWithTitle:(NSString *)title subtitle:(NSString *)subtitle coordinate:(CLLocationCoordinate2D)coordinate distance:(CLLocationDistance)distance
+-(id)initWithTitle:(NSString *)theTitle subtitle:(NSString *)theSubtitle coordinate:(CLLocationCoordinate2D)theCoordinate distance:(CLLocationDistance)theDistance
 {
     if (self = [super init]) {
-        self.title = title;
-        self.subtitle = subtitle;
-        self.coordinate = coordinate;
-        self.distanceFromUser = distance;
+        self.title = theTitle;
+        self.subtitle = theSubtitle;
+        self.coordinate = theCoordinate;
+        self.distanceFromUser = theDistance;
     }
     return self;
 }
