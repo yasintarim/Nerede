@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/Mapkit.h>
 
-@interface Entity : NSObject
+@interface Entity : NSObject<MKAnnotation>
 
-@property (nonatomic, copy) NSString *m_title;
-@property (nonatomic, copy) NSString *m_subtitle;
-@property (nonatomic) CLLocationCoordinate2D m_coordinate;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
+@property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic) CLLocationDistance distanceFromUser;
 
 - (id)initWithTitle:(NSString*)title subtitle:(NSString*)subtitle coordinate:(CLLocationCoordinate2D) coordinate distance:(CLLocationDistance)distance;

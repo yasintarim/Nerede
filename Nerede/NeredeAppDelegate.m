@@ -7,8 +7,6 @@
 //
 
 #import "NeredeAppDelegate.h"
-
-#import "NeredeViewController.h"
 #import "MapViewController.h"
 
 @implementation NeredeAppDelegate

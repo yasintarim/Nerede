@@ -9,9 +9,9 @@
 #import "Entity.h"
 
 @implementation Entity
-@synthesize m_title;
-@synthesize m_subtitle;
-@synthesize m_coordinate;
+@synthesize title;
+@synthesize subtitle;
+@synthesize coordinate;
 @synthesize distanceFromUser;
 
 - (id)init
@@ -27,9 +27,9 @@
 -(id)initWithTitle:(NSString *)title subtitle:(NSString *)subtitle coordinate:(CLLocationCoordinate2D)coordinate distance:(CLLocationDistance)distance
 {
     if (self = [super init]) {
-        m_title = title;
-        m_subtitle = subtitle;
-        m_coordinate = coordinate;
+        self.title = title;
+        self.subtitle = subtitle;
+        self.coordinate = coordinate;
         self.distanceFromUser = distance;
     }
     return self;
@@ -43,17 +43,17 @@
 {
     return [NSString stringWithFormat:@"\n%@\ntitle: %@\nsubtitle: %@\nlatitude:%f\nlongtitude:%f\ndistance:%f\n\n", 
             [super description], 
-            self.m_title, 
-            self.m_subtitle,
-            self.m_coordinate.latitude,
-            self.m_coordinate.longitude,
+            self.title, 
+            self.subtitle,
+            self.coordinate.latitude,
+            self.coordinate.longitude,
             self.distanceFromUser];
 }
 
 -(void)dealloc
 {
-    m_title = nil;
-    m_subtitle = nil;
+    title = nil;
+    subtitle = nil;
     [super dealloc];
 }
 

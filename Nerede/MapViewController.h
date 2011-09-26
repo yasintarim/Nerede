@@ -25,4 +25,5 @@
 - (void) findNearestPlace;
 - (void) populateXmlData;
 - (void) performBackgroundTask;
+- (void) addAnnotations:(NSArray*) arr;
 @end

@@ -8,7 +8,6 @@
 
 
 #import "MapViewController.h"
-#import "AnnotationData.h"
 #import "Entity.h"
 
 @implementation MapViewController
@@ -82,14 +81,14 @@
     region.span.latitudeDelta = 0.0039;
     region.span.longitudeDelta = 0.0034;
     
-    YsnAnnotation* a = [[YsnAnnotation alloc] initWithCoordinate:userLocation];
-    [mapView addAnnotation:a  ];
+   // Entity* a = [[Entity alloc] initWithTitle:@"test" subtitle:@"test2" coordinate:userLocation distance:0];
+    //[mapView addAnnotation:a  ];
     
-    [a release];
-    a.title = [NSString stringWithFormat:@"%f", userLocation.latitude];
-    [mapView selectAnnotation:a animated:YES];
+    //[a release];
+    //a.title = [NSString stringWithFormat:@"%f", userLocation.latitude];
+    //[mapView selectAnnotation:a animated:YES];
     
-    [mapView setRegion:region animated:YES];
+    //[mapView setRegion:region animated:YES];
     
     [manager stopUpdatingLocation];
 }
@@ -145,11 +144,13 @@
 - (void) findNearestPlace
 {
     NSArray *arr = [m_places sortedArrayUsingSelector:@selector(compare:)];
+    
+    
     Entity *obj = (Entity*)[arr objectAtIndex:0];
     Entity *obj1 = (Entity*)[arr objectAtIndex:1];
-    
     NSLog(@"%@", obj);
     NSLog(@"%@", obj1);
+    [self performSelectorOnMainThread:@selector(addAnnotations:) withObject:arr waitUntilDone:NO];
 }
 
 -(void) performBackgroundTask
@@ -158,6 +159,12 @@
     [self populateXmlData];
     [self findNearestPlace];
     [pool drain];
+}
+
+- (void) addAnnotations:(NSArray*) arr
+{
+    [mapView addAnnotations:arr];
+    [mapView selectedAnnotations];
 }
 
 @end
