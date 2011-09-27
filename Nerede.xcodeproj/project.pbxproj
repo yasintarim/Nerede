@@ -17,6 +17,7 @@
 		84151EA5142947C800DC271D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84151EA2142947C800DC271D /* CoreLocation.framework */; };
 		84151EA6142947C800DC271D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84151EA3142947C800DC271D /* MapKit.framework */; };
 		84151EA91429483B00DC271D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84151EA81429483B00DC271D /* MapViewController.m */; };
+		84405C8D1432781300834D78 /* pink_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 84405C8C1432781300834D78 /* pink_pin.png */; };
 		84DE68FD142E883A002ABD3E /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE68FC142E883A002ABD3E /* Entity.m */; };
 		84DE691E142E948B002ABD3E /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6903142E948B002ABD3E /* CXMLDocument_CreationExtensions.m */; };
 		84DE691F142E948B002ABD3E /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6905142E948B002ABD3E /* CXMLNode_CreationExtensions.m */; };
@@ -50,6 +51,7 @@
 		84151EA3142947C800DC271D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		84151EA71429483B00DC271D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		84151EA81429483B00DC271D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		84405C8C1432781300834D78 /* pink_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_pin.png; sourceTree = "<group>"; };
 		84DE68FB142E883A002ABD3E /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		84DE68FC142E883A002ABD3E /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		84DE6902142E948B002ABD3E /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		84151EA0142945F100DC271D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84405C8C1432781300834D78 /* pink_pin.png */,
 				84DE692C142E96A6002ABD3E /* Data.xml */,
 			);
 			name = Resources;
@@ -271,6 +274,7 @@
 			files = (
 				84151E87142937F800DC271D /* InfoPlist.strings in Resources */,
 				84DE692D142E96A6002ABD3E /* Data.xml in Resources */,
+				84405C8D1432781300834D78 /* pink_pin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

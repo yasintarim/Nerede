@@ -8,13 +8,14 @@
 
 
 #import "MapViewController.h"
-#import "Entity.h"
+
 
 @implementation MapViewController
 @synthesize mapView;
 @synthesize locationManager;
 @synthesize m_places;
 @synthesize userLocation;
+@synthesize reverseGeocoder;
 
 
 - (id)init
@@ -23,16 +24,17 @@
     if (self) {
         m_places = [[NSMutableArray alloc] init];
         mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
-        mapView.mapType = MKMapTypeHybrid;
+        mapView.mapType = MKMapTypeStandard;
         locationManager = [[CLLocationManager alloc] init];
         locationManager.delegate = self;
-        mapView.showsUserLocation = YES;
+        mapView.delegate = self;
+        
+        //mapView.showsUserLocation = YES;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         [locationManager startUpdatingLocation];
         [self.view addSubview:mapView];
         [self performSelectorInBackground:@selector(performBackgroundTask) withObject:nil];
-        
-    }
+            }
     
     return self;
 }
@@ -55,6 +57,10 @@
     [locationManager release];
     locationManager = nil;
     
+    reverseGeocoder.delegate = nil;
+    [reverseGeocoder release];
+    reverseGeocoder = nil;
+    
     [m_places release];
     m_places = nil;
     
@@ -71,39 +77,32 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     userLocation = [newLocation coordinate];
-    [mapView setCenterCoordinate:userLocation]; 
+    //[mapView setCenterCoordinate:userLocation]; 
     
-    MKCoordinateRegion region;
-    
-    region.center.latitude = newLocation.coordinate.latitude;
-    region.center.longitude = newLocation.coordinate.longitude;
-    
-    region.span.latitudeDelta = 0.0039;
-    region.span.longitudeDelta = 0.0034;
-    
-   // Entity* a = [[Entity alloc] initWithTitle:@"test" subtitle:@"test2" coordinate:userLocation distance:0];
-    //[mapView addAnnotation:a  ];
-    
-    //[a release];
-    //a.title = [NSString stringWithFormat:@"%f", userLocation.latitude];
-    //[mapView selectAnnotation:a animated:YES];
-    
-    //[mapView setRegion:region animated:YES];
+   
     
     [manager stopUpdatingLocation];
 }
 
-- (MKAnnotationView *)viewForAnnotation:(id < MKAnnotation >)annotation
-{
-    MKAnnotationView *view = [mapView dequeueReusableAnnotationViewWithIdentifier:@"ysn"];
+- (MKAnnotationView *) mapView: (MKMapView *) mView viewForAnnotation: (id<MKAnnotation>) annotation {
+    // reuse a view, if one exists
+    MKPinAnnotationView *view = (MKPinAnnotationView*)[mView dequeueReusableAnnotationViewWithIdentifier:@"pinView"];
     if (view != nil) {
-        return  view;
+        return view;
     }
     
-    view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"ysn"];
+    view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"pinView"];
+    view.pinColor = MKPinAnnotationColorRed;
+    view.canShowCallout = YES;
+    view.animatesDrop = YES;
+    
+    UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
+    [rightButton addTarget:self action:@selector(showDetailView) forControlEvents:UIControlEventTouchUpInside];
+    view.rightCalloutAccessoryView = rightButton;
     return [view autorelease];
+    
 }
-
 -(void)populateXmlData
 {   
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"xml"];
@@ -133,7 +132,6 @@
         [entity release];  
     }
     
-    
 }
 
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -145,6 +143,8 @@
 {
     NSArray *arr = [m_places sortedArrayUsingSelector:@selector(compare:)];
     NSLog(@"%@", arr);
+ 
+    
     [self performSelectorOnMainThread:@selector(addAnnotations:) withObject:arr waitUntilDone:NO];
 }
 
@@ -158,8 +158,52 @@
 
 - (void) addAnnotations:(NSArray*) arr
 {
-    [mapView addAnnotations:arr];
-    [mapView selectedAnnotations];
+    Entity* m = [arr objectAtIndex:0];
+    [mapView setCenterCoordinate:m.coordinate];
+    
+    
+    
+    Entity *arg = (Entity*) [arr objectAtIndex:0];
+    reverseGeocoder = [[MKReverseGeocoder alloc] initWithCoordinate:arg.coordinate];
+    reverseGeocoder.delegate = self;
+    [reverseGeocoder start];
+    }
+
+- (void) showDetailView
+{
+
+  
+    
+    
+    
+    /*NSString *url = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f", self.userLocation.latitude, self.userLocation.longitude, arg.coordinate.latitude, arg.coordinate.longitude];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];*/
+
 }
+
+-(void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError:(NSError *)error
+{
+    NSLog(@"xx");
+}
+
+-(void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
+{
+    MKCoordinateRegion region;
+    
+    region.center.latitude = placemark.coordinate.latitude;
+    region.center.longitude = placemark.coordinate.longitude;
+    
+    region.span.latitudeDelta = 0.05;
+    region.span.longitudeDelta = 0.05;
+    
+    [mapView setRegion:region];
+
+    
+    [mapView addAnnotation:placemark];
+    [mapView selectAnnotation:placemark animated:YES];
+    NSLog(@"%@", placemark);
+}
+
+
 
 @end
