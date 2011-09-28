@@ -65,11 +65,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Nerede/MapViewController.m"
-         timestampString = "338856564.888493"
+         timestampString = "338856798.419675"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "170"
-         endingLineNumber = "170"
+         startingLineNumber = "168"
+         endingLineNumber = "168"
          landmarkName = "-addAnnotations:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -135,11 +135,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Nerede/MapViewController.m"
-         timestampString = "338856564.888493"
+         timestampString = "338856798.419675"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "179"
-         endingLineNumber = "179"
+         startingLineNumber = "177"
+         endingLineNumber = "177"
          landmarkName = "-showDetailView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -149,11 +149,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Nerede/MapViewController.m"
-         timestampString = "338856564.888493"
+         timestampString = "338856798.419675"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "186"
-         endingLineNumber = "186"
+         startingLineNumber = "184"
+         endingLineNumber = "184"
          landmarkName = "-reverseGeocoder:didFailWithError:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -163,11 +163,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Nerede/MapViewController.m"
-         timestampString = "338856564.888493"
+         timestampString = "338856798.419675"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "204"
-         endingLineNumber = "204"
+         startingLineNumber = "202"
+         endingLineNumber = "202"
          landmarkName = "-reverseGeocoder:didFindPlacemark:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,11 +177,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Nerede/MapViewController.m"
-         timestampString = "338856564.888493"
+         timestampString = "338856798.419675"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "175"
-         endingLineNumber = "175"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
          landmarkName = "-showDetailView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -191,11 +191,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Nerede/MapViewController.m"
-         timestampString = "338856564.888493"
+         timestampString = "338856798.419675"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
+         startingLineNumber = "191"
+         endingLineNumber = "191"
          landmarkName = "-reverseGeocoder:didFindPlacemark:"
          landmarkType = "5">
       </FileBreakpoint>

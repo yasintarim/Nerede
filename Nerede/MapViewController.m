@@ -161,9 +161,7 @@
 - (void) addAnnotations:(NSArray*) arr
 {
     Entity* m = [arr objectAtIndex:0];
-    [mapView setCenterCoordinate:m.coordinate];
-    
-    
+    [mapView setCenterCoordinate:m.coordinate];    
     
     Entity *arg = (Entity*) [arr objectAtIndex:0];
     reverseGeocoder = [[MKReverseGeocoder alloc] initWithCoordinate:arg.coordinate];
