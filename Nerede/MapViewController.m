@@ -34,7 +34,7 @@
         [locationManager startUpdatingLocation];
         [self.view addSubview:mapView];
         [self performSelectorInBackground:@selector(performBackgroundTask) withObject:nil];
-            }
+    }
     
     return self;
 }
@@ -105,6 +105,7 @@
 }
 -(void)populateXmlData
 {   
+    
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"xml"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
@@ -131,6 +132,7 @@
         [entityLoc release];
         [entity release];  
     }
+    [userLoc release];
     
 }
 
@@ -190,9 +192,7 @@
 {
     MKCoordinateRegion region;
     
-    region.center.latitude = placemark.coordinate.latitude;
-    region.center.longitude = placemark.coordinate.longitude;
-    
+    region.center = placemark.coordinate;
     region.span.latitudeDelta = 0.05;
     region.span.longitudeDelta = 0.05;
     
