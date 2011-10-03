@@ -7,9 +7,27 @@
         <longtitude>32.997351</longtitude>
     </item>
     <item>
-        <title>Cem</title>
+        <title>Cem1</title>
         <subtitle>Karaca</subtitle>
-        <latitude>72.26815737376817</latitude>
+        <latitude>38.26815737376817</latitude>
+        <longtitude>36.5</longtitude>
+    </item>
+    <item>
+        <title>Cem2</title>
+        <subtitle>Karaca</subtitle>
+        <latitude>34.26815737376817</latitude>
+        <longtitude>35.5</longtitude>
+    </item>
+    <item>
+        <title>Cem3</title>
+        <subtitle>Karaca</subtitle>
+        <latitude>33.26815737376817</latitude>
+        <longtitude>34.5</longtitude>
+    </item>
+    <item>
+        <title>Cem5</title>
+        <subtitle>Karaca</subtitle>
+        <latitude>37.26815737376817</latitude>
         <longtitude>32.5</longtitude>
     </item>
     

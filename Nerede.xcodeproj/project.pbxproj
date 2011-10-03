@@ -18,6 +18,7 @@
 		84151EA6142947C800DC271D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84151EA3142947C800DC271D /* MapKit.framework */; };
 		84151EA91429483B00DC271D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84151EA81429483B00DC271D /* MapViewController.m */; };
 		84405C8D1432781300834D78 /* pink_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 84405C8C1432781300834D78 /* pink_pin.png */; };
+		84BC6DE11433B85F00539C2F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BC6DE01433B85F00539C2F /* DetailViewController.m */; };
 		84DE68FD142E883A002ABD3E /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE68FC142E883A002ABD3E /* Entity.m */; };
 		84DE691E142E948B002ABD3E /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6903142E948B002ABD3E /* CXMLDocument_CreationExtensions.m */; };
 		84DE691F142E948B002ABD3E /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6905142E948B002ABD3E /* CXMLNode_CreationExtensions.m */; };
@@ -52,6 +53,8 @@
 		84151EA71429483B00DC271D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		84151EA81429483B00DC271D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		84405C8C1432781300834D78 /* pink_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_pin.png; sourceTree = "<group>"; };
+		84BC6DDF1433B85F00539C2F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		84BC6DE01433B85F00539C2F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		84DE68FB142E883A002ABD3E /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		84DE68FC142E883A002ABD3E /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		84DE6902142E948B002ABD3E /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
@@ -221,6 +224,8 @@
 				84DE68FC142E883A002ABD3E /* Entity.m */,
 				84151EA71429483B00DC271D /* MapViewController.h */,
 				84151EA81429483B00DC271D /* MapViewController.m */,
+				84BC6DDF1433B85F00539C2F /* DetailViewController.h */,
+				84BC6DE01433B85F00539C2F /* DetailViewController.m */,
 			);
 			name = MapFiles;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				84DE6928142E948B002ABD3E /* CXMLNode_PrivateExtensions.m in Sources */,
 				84DE6929142E948B002ABD3E /* CXMLNode_XPathExtensions.m in Sources */,
 				84DE692A142E948B002ABD3E /* CTidy.m in Sources */,
+				84BC6DE11433B85F00539C2F /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,35 +17,39 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
     
-    //create window object
+    //window nesnesini olustur
     window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    window.backgroundColor = [UIColor redColor];
     
-    //create tabBarController
-    
+    //tabBarController nesnesini olustur
     tabBarController = [[UITabBarController alloc] init];
-
-    UITabBarItem* tabMain = [[UITabBarItem alloc] initWithTitle:@"Arama" image:nil tag:1];
-    UITabBarItem* tabUrunler = [[UITabBarItem alloc] initWithTitle:@"Bul" image:nil tag:2];
     
+    //haritanın görüntüleneceği viewcontroller nesnesini oluştur
     UIViewController *view1 = [[MapViewController alloc] init];
     view1.view.backgroundColor = [UIColor yellowColor];
-    view1.tabBarItem = tabMain;
+
+    //harita view controller nesnesini içeren navigationcontroller nesnesini oluştur
+    UINavigationController *navMap = [[UINavigationController alloc] initWithRootViewController:view1];
+    
+    //map için tab bar item ı oluştur
+    UITabBarItem *tabMap = [[UITabBarItem alloc] initWithTitle:@"map" image:nil tag: 1];
+    navMap.tabBarItem = tabMap;
+    
     
     MapViewController *view2 = [[UIViewController alloc] init];
     view2.view.backgroundColor = [UIColor blueColor];
-    view2.tabBarItem = tabUrunler;
-    
-    tabBarController.viewControllers = [NSArray arrayWithObjects:view1,view2, nil];
+
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:view2];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:navMap,nav, nil];
+
     
     [window addSubview:tabBarController.view];
-    [tabMain release];
-    [tabUrunler release];
+    [tabMap release];
     [view1 release];
     [view2 release];
-        
+    [nav release];
+    [navMap release];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

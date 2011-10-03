@@ -8,31 +8,25 @@
 
 
 #import "MapViewController.h"
-
+#import "DetailViewController.h"
 
 @implementation MapViewController
 @synthesize mapView;
-@synthesize locationManager;
 @synthesize m_places;
-@synthesize userLocation;
-@synthesize reverseGeocoder;
-
 
 - (id)init
 {
     self = [super init];
     if (self) {
         m_places = [[NSMutableArray alloc] init];
+            
         mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
         mapView.mapType = MKMapTypeStandard;
-        locationManager = [[CLLocationManager alloc] init];
-        locationManager.delegate = self;
         mapView.delegate = self;
-        
-        //mapView.showsUserLocation = YES;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        [locationManager startUpdatingLocation];
+        mapView.showsUserLocation = YES;
         [self.view addSubview:mapView];
+        mapView.centerCoordinate = CLLocationCoordinate2DMake(43.076913,25.620117);
+        
         [self performSelectorInBackground:@selector(performBackgroundTask) withObject:nil];
     }
     
@@ -49,43 +43,32 @@
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
     
+    [super viewDidUnload]; 
+    
+    mapView.delegate = nil;
     [mapView release];
     mapView = nil;
-    
-    [locationManager release];
-    locationManager = nil;
-    
-    reverseGeocoder.delegate = nil;
-    [reverseGeocoder release];
-    reverseGeocoder = nil;
     
     [m_places release];
     m_places = nil;
     
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
-{
-    userLocation = [newLocation coordinate];
-    //[mapView setCenterCoordinate:userLocation]; 
-    
-   
-    
-    [manager stopUpdatingLocation];
+    return interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 - (MKAnnotationView *) mapView: (MKMapView *) mView viewForAnnotation: (id<MKAnnotation>) annotation {
     // reuse a view, if one exists
+    
+    if ( mView.userLocation == annotation ) {
+        return nil; // display default image
+    }
+    
     MKPinAnnotationView *view = (MKPinAnnotationView*)[mView dequeueReusableAnnotationViewWithIdentifier:@"pinView"];
     if (view != nil) {
         return view;
@@ -96,13 +79,11 @@
     view.canShowCallout = YES;
     view.animatesDrop = YES;
     
-    UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    
-    [rightButton addTarget:self action:@selector(showDetailView) forControlEvents:UIControlEventTouchUpInside];
-    view.rightCalloutAccessoryView = rightButton;
+    view.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     return [view autorelease];
     
 }
+
 -(void)populateXmlData
 {   
     
@@ -111,7 +92,7 @@
     
     CXMLDocument *xmlParser = [[[CXMLDocument alloc] initWithData:data options:0 error:nil] autorelease];
     NSArray *resultNodes = [xmlParser nodesForXPath:@"/items/item" error:nil];
-    CLLocation *userLoc = [[CLLocation alloc] initWithLatitude:userLocation.latitude longitude:userLocation.longitude];
+    CLLocation *userLoc = [[CLLocation alloc] initWithLatitude:mapView.userLocation.coordinate.latitude longitude:mapView.userLocation.coordinate.longitude];
     
     for (CXMLElement *node in resultNodes) {
         CLLocationCoordinate2D loc = 
@@ -133,7 +114,6 @@
         [entity release];  
     }
     [userLoc release];
-    
 }
 
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -144,9 +124,7 @@
 - (void) findNearestPlace
 {
     NSArray *arr = [m_places sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@", arr);
- 
-    
+    NSLog(@"%@", arr);    
     [self performSelectorOnMainThread:@selector(addAnnotations:) withObject:arr waitUntilDone:NO];
 }
 
@@ -158,50 +136,33 @@
     [pool drain];
 }
 
-- (void) addAnnotations:(NSArray*) arr
+- (void) addAnnotations:(NSArray*)arr
 {
-    Entity* m = [arr objectAtIndex:0];
-    [mapView setCenterCoordinate:m.coordinate];    
-    
-    Entity *arg = (Entity*) [arr objectAtIndex:0];
-    reverseGeocoder = [[MKReverseGeocoder alloc] initWithCoordinate:arg.coordinate];
-    reverseGeocoder.delegate = self;
-    [reverseGeocoder start];
+    [mapView addAnnotations:arr];
+    [self performSelector:@selector(zoomToAnnotations) withObject:nil afterDelay:1];
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    DetailViewController *dvc = [[DetailViewController alloc] init];
+    [(UINavigationController*)self.parentViewController   pushViewController:dvc animated:YES];
+    [dvc release];
+}
+
+- (void)zoomToAnnotations
+{
+    MKMapRect zoomRect = MKMapRectNull;
+    for (id <MKAnnotation> annotation in mapView.annotations) {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+        if (MKMapRectIsNull(zoomRect)) {
+            zoomRect = pointRect;
+        } else {
+            zoomRect = MKMapRectUnion(zoomRect, pointRect);
+        }
     }
-
-- (void) showDetailView
-{
-
-  
     
-    
-    
-    /*NSString *url = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f", self.userLocation.latitude, self.userLocation.longitude, arg.coordinate.latitude, arg.coordinate.longitude];
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];*/
-
+    [mapView setVisibleMapRect:zoomRect animated:YES];
 }
-
--(void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFailWithError:(NSError *)error
-{
-    NSLog(@"xx");
-}
-
--(void)reverseGeocoder:(MKReverseGeocoder *)geocoder didFindPlacemark:(MKPlacemark *)placemark
-{
-    MKCoordinateRegion region;
-    
-    region.center = placemark.coordinate;
-    region.span.latitudeDelta = 0.05;
-    region.span.longitudeDelta = 0.05;
-    
-    [mapView setRegion:region];
-
-    
-    [mapView addAnnotation:placemark];
-    [mapView selectAnnotation:placemark animated:YES];
-    NSLog(@"%@", placemark);
-}
-
-
 
 @end
