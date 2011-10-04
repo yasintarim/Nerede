@@ -13,7 +13,8 @@
 @implementation MapViewController
 @synthesize mapView;
 @synthesize m_places;
-
+@synthesize m_locationManager;
+@synthesize m_userCoordinate;
 - (id)init
 {
     self = [super init];
@@ -25,9 +26,20 @@
         mapView.delegate = self;
         mapView.showsUserLocation = YES;
         [self.view addSubview:mapView];
-        mapView.centerCoordinate = CLLocationCoordinate2DMake(43.076913,25.620117);
+
+        MKCoordinateRegion region;
+        region.center.latitude = 39.02;
+        region.center.longitude = 35.15;
+        region.span.latitudeDelta = 16;
+        region.span.longitudeDelta = 4;
         
-        [self performSelectorInBackground:@selector(performBackgroundTask) withObject:nil];
+        mapView.region = region;
+
+        m_locationManager = [[CLLocationManager alloc] init];
+        m_locationManager.delegate = self;
+        m_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        m_locationManager.distanceFilter = 10.0f;
+        [m_locationManager startUpdatingLocation];
     }
     
     return self;
@@ -35,7 +47,6 @@
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
 }
 
@@ -45,6 +56,10 @@
 {
     
     [super viewDidUnload]; 
+    
+    m_locationManager.delegate = nil;
+    [m_locationManager release];
+    m_locationManager = nil;
     
     mapView.delegate = nil;
     [mapView release];
@@ -63,10 +78,9 @@
 }
 
 - (MKAnnotationView *) mapView: (MKMapView *) mView viewForAnnotation: (id<MKAnnotation>) annotation {
-    // reuse a view, if one exists
     
     if ( mView.userLocation == annotation ) {
-        return nil; // display default image
+        return nil;
     }
     
     MKPinAnnotationView *view = (MKPinAnnotationView*)[mView dequeueReusableAnnotationViewWithIdentifier:@"pinView"];
@@ -84,15 +98,14 @@
     
 }
 
--(void)populateXmlData
+-(void)parseDataFromXml
 {   
-    
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"xml"];
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     CXMLDocument *xmlParser = [[[CXMLDocument alloc] initWithData:data options:0 error:nil] autorelease];
     NSArray *resultNodes = [xmlParser nodesForXPath:@"/items/item" error:nil];
-    CLLocation *userLoc = [[CLLocation alloc] initWithLatitude:mapView.userLocation.coordinate.latitude longitude:mapView.userLocation.coordinate.longitude];
+    CLLocation *userLoc = [[CLLocation alloc] initWithLatitude:m_userCoordinate.latitude longitude:m_userCoordinate.longitude];
     
     for (CXMLElement *node in resultNodes) {
         CLLocationCoordinate2D loc = 
@@ -104,10 +117,11 @@
         CLLocation *entityLoc = [[CLLocation alloc] initWithLatitude:loc.latitude longitude:loc.longitude];
         
         CLLocationDistance distance =  [userLoc distanceFromLocation:entityLoc];
+        NSString *subTitle = [NSString stringWithFormat:@"(%0.1fkm) %@", distance/1000, [[node nodeForXPath:@"subtitle" error:nil] stringValue]];
         
         Entity *entity = [[Entity alloc] 
-                          initWithTitle: [[node nodeForXPath:@"title" error:nil] stringValue]
-                          subtitle:[[node nodeForXPath:@"subtitle" error:nil] stringValue]  coordinate:loc distance:distance];
+                          initWithTitle: [[node nodeForXPath:@"title" error:nil] stringValue]  
+                          subtitle:subTitle  coordinate:loc distance:distance];
         
         [m_places addObject:entity];
         [entityLoc release];
@@ -118,28 +132,27 @@
 
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    NSLog(@"%@", [error code]);
+    //NSLog(@"%@", [error code]);
 }
 
 - (void) findNearestPlace
 {
-    NSArray *arr = [m_places sortedArrayUsingSelector:@selector(compare:)];
-    NSLog(@"%@", arr);    
-    [self performSelectorOnMainThread:@selector(addAnnotations:) withObject:arr waitUntilDone:NO];
-}
+   // yerleri mesafeye gore sirala -az dan çok  a dogru
+   }
 
 -(void) performBackgroundTask
 {
     NSAutoreleasePool *pool = [NSAutoreleasePool new];
-    [self populateXmlData];
-    [self findNearestPlace];
-    [pool drain];
-}
+   
+    [self parseDataFromXml];
+    
+    NSArray *arr = [m_places sortedArrayUsingSelector:@selector(compare:)];
+    [m_places removeAllObjects];
+    [m_places addObjectsFromArray:arr];
+    
+    [self performSelectorOnMainThread:@selector(zoomToAnnotations) withObject:arr waitUntilDone:NO];
 
-- (void) addAnnotations:(NSArray*)arr
-{
-    [mapView addAnnotations:arr];
-    [self performSelector:@selector(zoomToAnnotations) withObject:nil afterDelay:1];
+    [pool drain];
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
@@ -150,9 +163,14 @@
 }
 
 - (void)zoomToAnnotations
-{
-    MKMapRect zoomRect = MKMapRectNull;
-    for (id <MKAnnotation> annotation in mapView.annotations) {
+ {
+     NSMutableArray *arr = [[NSMutableArray alloc] initWithArray:m_places];
+     Entity *user = [[Entity alloc] initWithTitle:@"" subtitle:@"" coordinate:m_userCoordinate distance:0];
+     [arr addObject:user];
+     [user release];
+     
+     MKMapRect zoomRect = MKMapRectNull;
+     for (Entity *annotation in arr) {
         MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
         MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
         if (MKMapRectIsNull(zoomRect)) {
@@ -160,9 +178,28 @@
         } else {
             zoomRect = MKMapRectUnion(zoomRect, pointRect);
         }
-    }
-    
-    [mapView setVisibleMapRect:zoomRect animated:YES];
+ }
+     [arr release];
+     [mapView setVisibleMapRect:MKMapRectMake(zoomRect.origin.x, zoomRect.origin.y, zoomRect.size.width * 1.3, zoomRect.size.height * 1.3) animated:YES ] ;
+     
+     [self performSelector:@selector(addAnnotationObjects) withObject:nil afterDelay:0.5];
+ }
+
+
+- (void) addAnnotationObjects
+{
+    [mapView addAnnotations:m_places];   
 }
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    if (abs([newLocation.timestamp timeIntervalSinceNow]) > 10.0) {
+        return;
+    }
+    m_userCoordinate = newLocation.coordinate;
+    [m_locationManager stopUpdatingLocation];
+    [self performSelectorInBackground:@selector(performBackgroundTask) withObject:nil];
+}
+    
 
 @end
