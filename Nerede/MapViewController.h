@@ -17,7 +17,6 @@
 @property (nonatomic, retain) NSMutableArray *m_places;
 @property (nonatomic, retain) CLLocationManager *m_locationManager;
 @property (nonatomic)CLLocationCoordinate2D m_userCoordinate;
-- (void) findNearestPlace;
 - (void) parseDataFromXml;
 - (void) performBackgroundTask;
 - (void) zoomToAnnotations;

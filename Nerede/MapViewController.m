@@ -135,11 +135,6 @@
     //NSLog(@"%@", [error code]);
 }
 
-- (void) findNearestPlace
-{
-   // yerleri mesafeye gore sirala -az dan çok  a dogru
-   }
-
 -(void) performBackgroundTask
 {
     NSAutoreleasePool *pool = [NSAutoreleasePool new];
@@ -157,7 +152,8 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    DetailViewController *dvc = [[DetailViewController alloc] init];
+    Entity* data = (Entity*) view.annotation;
+    DetailViewController *dvc = [[DetailViewController alloc] initWithTitle:data.title subtitle:data.subtitle coordinate:m_userCoordinate targetCoordinate:data.coordinate distance:data.distanceFromUser];
     [(UINavigationController*)self.parentViewController   pushViewController:dvc animated:YES];
     [dvc release];
 }
