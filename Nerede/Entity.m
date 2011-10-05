@@ -41,7 +41,7 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"\n%@\ntitle: %@\nsubtitle: %@\nlatitude:%f\nlongtitude:%f\ndistance:%f\n\n", 
+    return [NSString stringWithFormat:@"\n%@\ntitle: %@\nsubtitle: %@\nlatitude:%f\nlongtitude:%f\ndistanceFromUser:%f\n\n", 
             [super description], 
             self.title, 
             self.subtitle,

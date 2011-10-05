@@ -32,47 +32,16 @@
         m_coordinate = coordinate;
         m_distance = distance;
         m_targetCoordinate = targetCoordinate;
-        self.view.backgroundColor = [UIColor redColor];
+        self.view.backgroundColor = [UIColor grayColor];
     }
     return  self;
 }
-/*
-- (void)loadView {
-	self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-	self.view.backgroundColor = [UIColor yellowColor];
-	
-	UILabel *myLabel = [[UILabel alloc] initWithFrame:CGRectMake(50, 50, 200, 80)];
-	myLabel.text = @"Isn't it amazing?";
-	myLabel.textAlignment = UITextAlignmentCenter;	
-	myLabel.backgroundColor = [UIColor colorWithRed:0.2 green:0.9 blue:0.5 alpha:0.3];
-	
-	UILabel *myLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(50, 200, 200, 80)];
-	myLabel2.text = @"only Xcode";
-	myLabel2.textAlignment = UITextAlignmentCenter;
-	myLabel2.textColor = [UIColor yellowColor];
-	myLabel2.shadowColor = [UIColor whiteColor];
-	myLabel2.shadowOffset = CGSizeMake(1,1);
-	myLabel2.font = [UIFont fontWithName:@"Zapfino" size:20];
-	myLabel2.backgroundColor = [UIColor greenColor];
-	
-    
-	
-    
-	[self.view addSubview:myLabel];
-	[self.view addSubview:myLabel2];
-	[myLabel release];
-	[myLabel2 release];
-	[self.view release];
-    
-}
-*/
 
 - (void)loadView
 {
     [super loadView];
     CGRect bounds = [UIScreen mainScreen].bounds;
     UIView *view = self.view;
-    view.backgroundColor = [UIColor redColor];
     
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, bounds.size.width, 50)];
     title.text = m_title;
@@ -84,26 +53,19 @@
     subTitle.text = m_subtitle;
     subTitle.textAlignment = UITextAlignmentLeft;
     
-    
-	UIButton *myButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 150, bounds.size.width, 50)];
+
+    UIButton *myButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 150, bounds.size.width, 50)];
 	[myButton setTitle:@"Yol Tarifi Al" forState:UIControlStateNormal];
 	[myButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-	myButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-	[myButton addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
-
+	 myButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+	[myButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    myButton.backgroundColor = [UIColor whiteColor];
     
     [view addSubview:myButton];
     [myButton release];
     [view addSubview:subTitle];
     [title release];
     [subTitle release];
-    
-    
-    
-    
-   // self.view = view;
-  
-    
 }
 
 -(void)buttonAction

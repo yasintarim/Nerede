@@ -31,15 +31,22 @@
     //harita view controller nesnesini içeren navigationcontroller nesnesini oluştur
     UINavigationController *navMap = [[UINavigationController alloc] initWithRootViewController:view1];
     
-    //map için tab bar item ı oluştur
-    UITabBarItem *tabMap = [[UITabBarItem alloc] initWithTitle:@"map" image:nil tag: 1];
-    navMap.tabBarItem = tabMap;
+    navMap.navigationBar.topItem.title = [NSString stringWithFormat: @"Mesafe: %.1f km", 20.0];
     
+    //map için tab bar item ı oluştur
+    UITabBarItem *tabMap = [[UITabBarItem alloc] initWithTitle:@"En Yakın Yer" image:nil tag: 1];
+    navMap.tabBarItem = tabMap;
+    //[navMap setNavigationBarHidden:YES];    
     
     MapViewController *view2 = [[UIViewController alloc] init];
     view2.view.backgroundColor = [UIColor blueColor];
 
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:view2];
+    UITabBarItem *tabEkstra = [[UITabBarItem alloc] initWithTitle:@"Ekstra" image:nil tag: 1];
+    nav.tabBarItem = tabEkstra;
+    
+    
+    
     tabBarController.viewControllers = [NSArray arrayWithObjects:navMap,nav, nil];
 
     

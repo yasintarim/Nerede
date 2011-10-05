@@ -8,13 +8,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Nerede/DetailViewController.m"
-         timestampString = "339465960.302461"
+         filePath = "Nerede/MapViewController.m"
+         timestampString = "339546309.864687"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
-         landmarkName = "-initWithTitle:subtitle:coordinate:targetCoordinate:distance:"
+         startingLineNumber = "240"
+         endingLineNumber = "240"
+         landmarkName = "-sliderAction:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -22,13 +22,41 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Nerede/DetailViewController.m"
-         timestampString = "339465960.302461"
+         filePath = "Nerede/MapViewController.m"
+         timestampString = "339546309.864687"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "88"
-         endingLineNumber = "88"
-         landmarkName = "-loadView"
+         startingLineNumber = "277"
+         endingLineNumber = "277"
+         landmarkName = "-findPlacesWithinKilometer"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Nerede/MapViewController.m"
+         timestampString = "339546309.864687"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "245"
+         endingLineNumber = "245"
+         landmarkName = "-updateTitle"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Nerede/MapViewController.m"
+         timestampString = "339546309.864687"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "246"
+         endingLineNumber = "246"
+         landmarkName = "-updateTitle"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

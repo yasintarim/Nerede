@@ -15,9 +15,18 @@
 
 @property (nonatomic, retain) MKMapView *mapView;
 @property (nonatomic, retain) NSMutableArray *m_places;
+@property (nonatomic, retain) NSMutableArray *m_placesTemp;
 @property (nonatomic, retain) CLLocationManager *m_locationManager;
-@property (nonatomic)CLLocationCoordinate2D m_userCoordinate;
+@property (nonatomic) CLLocationCoordinate2D m_userCoordinate;
+@property (nonatomic, retain) UIView* m_transparentView;
+@property (nonatomic, retain) UISlider *m_slider;
 - (void) parseDataFromXml;
 - (void) performBackgroundTask;
 - (void) zoomToAnnotations;
+- (void) sliderAction:(id)sender;
+- (void) updateTitle;
+- (void) showLoadingView;
+- (void) hideLoadingView;
+- (void) findPlacesWithinKilometer;
+- (void) selectNearestAnnotation;
 @end
