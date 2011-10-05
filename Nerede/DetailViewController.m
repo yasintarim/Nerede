@@ -58,7 +58,7 @@
 	[myButton setTitle:@"Yol Tarifi Al" forState:UIControlStateNormal];
 	[myButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 	 myButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-	[myButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+	[myButton addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
     myButton.backgroundColor = [UIColor whiteColor];
     
     [view addSubview:myButton];
