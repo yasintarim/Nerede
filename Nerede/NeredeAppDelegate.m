@@ -18,6 +18,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+
+    
+    application.applicationIconBadgeNumber = 0;
+    
     //window nesnesini olustur
     window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
@@ -38,7 +45,7 @@
     navMap.tabBarItem = tabMap;
     //[navMap setNavigationBarHidden:YES];    
     
-    MapViewController *view2 = [[UIViewController alloc] init];
+    UIViewController *view2 = [[UIViewController alloc] init];
     view2.view.backgroundColor = [UIColor blueColor];
 
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:view2];
@@ -58,6 +65,7 @@
     [navMap release];
     
     [self.window makeKeyAndVisible];
+       
     return YES;
 }
 
@@ -98,6 +106,15 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSLog(@"%@", deviceToken);
+}
+
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    
 }
 
 - (void)dealloc

@@ -255,6 +255,9 @@
 /* Begin PBXProject section */
 		84151E6F142937F700DC271D /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 84151E72142937F700DC271D /* Build configuration list for PBXProject "Nerede" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -330,7 +333,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yasin Tarim (ZL8LN2GPHT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yasin Tarim (ZL8LN2GPHT)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -345,6 +349,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PROVISIONING_PROFILE = "AA85AE41-3AF9-49B2-A6E6-E50A88BB2068";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AA85AE41-3AF9-49B2-A6E6-E50A88BB2068";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -354,6 +360,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yasin Tarim (ZL8LN2GPHT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -363,6 +370,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "AA85AE41-3AF9-49B2-A6E6-E50A88BB2068";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AA85AE41-3AF9-49B2-A6E6-E50A88BB2068";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -373,6 +382,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nerede/Nerede-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = "Nerede/Nerede-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
@@ -389,6 +399,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Nerede/Nerede-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = "Nerede/Nerede-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
