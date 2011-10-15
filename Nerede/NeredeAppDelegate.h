@@ -16,6 +16,6 @@
 }
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) UITabBarController *tabBarController;
-@property (nonatomic, retain) IBOutlet NeredeViewController *viewController;
+@property (nonatomic, retain) NeredeViewController *viewController;
 
 @end

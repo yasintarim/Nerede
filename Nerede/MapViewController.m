@@ -284,7 +284,6 @@
             [m_placesTemp addObject:e];
         }
     }
-  //[self performSelectorOnMainThread:@selector(hideLoadingView) withObject:nil waitUntilDone:NO];
   [self performSelectorOnMainThread:@selector(zoomToAnnotations) withObject:nil waitUntilDone:NO];
 }
 - (void) hideLoadingView
