@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataModel.h"
 
 @class NeredeViewController;
 
@@ -17,5 +18,7 @@
 @property (nonatomic, retain) UIWindow *window;
 @property (nonatomic, retain) UITabBarController *tabBarController;
 @property (nonatomic, retain) NeredeViewController *viewController;
+@property (nonatomic, retain) DataModel *m_dataModel;
+-(void)postUpdate:(NSString*)newToken;
 
 @end

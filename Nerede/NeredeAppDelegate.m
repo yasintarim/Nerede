@@ -9,11 +9,13 @@
 #import "NeredeAppDelegate.h"
 #import "MapViewController.h"
 
+
 @implementation NeredeAppDelegate
 
 @synthesize window;
 @synthesize tabBarController;
 @synthesize viewController;
+@synthesize m_dataModel;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,7 +23,10 @@
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-
+    
+    [[UIDevice currentDevice] uniqueIdentifier];
+    
+    
     
     application.applicationIconBadgeNumber = 0;
     
@@ -34,7 +39,7 @@
     //haritanın görüntüleneceği viewcontroller nesnesini oluştur
     UIViewController *view1 = [[MapViewController alloc] init];
     view1.view.backgroundColor = [UIColor yellowColor];
-
+    
     //harita view controller nesnesini içeren navigationcontroller nesnesini oluştur
     UINavigationController *navMap = [[UINavigationController alloc] initWithRootViewController:view1];
     
@@ -47,15 +52,16 @@
     
     UIViewController *view2 = [[UIViewController alloc] init];
     view2.view.backgroundColor = [UIColor blueColor];
-
+    
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:view2];
     UITabBarItem *tabEkstra = [[UITabBarItem alloc] initWithTitle:@"Ekstra" image:nil tag: 1];
     nav.tabBarItem = tabEkstra;
     
-    
+    m_dataModel = [[DataModel alloc] init];
+
     
     tabBarController.viewControllers = [NSArray arrayWithObjects:navMap,nav, nil];
-
+    
     
     [window addSubview:tabBarController.view];
     [tabMap release];
@@ -65,7 +71,7 @@
     [navMap release];
     
     [self.window makeKeyAndVisible];
-       
+    
     return YES;
 }
 
@@ -109,7 +115,8 @@
 }
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    NSLog(@"%@", deviceToken);
+    NSString *newToken = [deviceToken description];
+    [self performSelectorInBackground:@selector(postUpdate:) withObject:newToken];
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -117,11 +124,25 @@
     
 }
 
+-(void)postUpdate:(NSString*)newToken
+{
+    NSString *oldToken = [m_dataModel deviceToken];
+    newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+	newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    if ([oldToken length] < 1 || [oldToken isEqualToString:newToken]) {
+        
+        [m_dataModel postUpdate:newToken];
+        
+    }
+
+}
 - (void)dealloc
 {
     [window release];
     [viewController release];
     [tabBarController release];
+    [m_dataModel release];
     [super dealloc];
 }
 

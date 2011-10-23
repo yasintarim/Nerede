@@ -4,59 +4,17 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Nerede/MapViewController.m"
-         timestampString = "339546309.864687"
+         filePath = "Nerede/DataModel.m"
+         timestampString = "341097236.402486"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "240"
-         endingLineNumber = "240"
-         landmarkName = "-sliderAction:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Nerede/MapViewController.m"
-         timestampString = "339546309.864687"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "277"
-         endingLineNumber = "277"
-         landmarkName = "-findPlacesWithinKilometer"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Nerede/MapViewController.m"
-         timestampString = "339546309.864687"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "245"
-         endingLineNumber = "245"
-         landmarkName = "-updateTitle"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Nerede/MapViewController.m"
-         timestampString = "339546309.864687"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "246"
-         endingLineNumber = "246"
-         landmarkName = "-updateTitle"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
+         landmarkName = "-postUpdate:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -64,13 +22,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Nerede/DetailViewController.m"
-         timestampString = "339547081.216043"
+         filePath = "Nerede/DataModel.m"
+         timestampString = "341097237.979601"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "73"
-         endingLineNumber = "73"
-         landmarkName = "-buttonAction"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
+         landmarkName = "-postUpdate:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -78,13 +36,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Nerede/NeredeAppDelegate.m"
-         timestampString = "339786764.145074"
+         filePath = "Nerede/DataModel.m"
+         timestampString = "341098470.435156"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "112"
-         endingLineNumber = "112"
-         landmarkName = "-application:didRegisterForRemoteNotificationsWithDeviceToken:"
+         startingLineNumber = "50"
+         endingLineNumber = "50"
+         landmarkName = "-postUpdate:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
