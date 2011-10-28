@@ -1,2 +1,5 @@
 /* Localized versions of Info.plist keys */
 
+"KONUM_SERVISLERI_KAPALI" = "Location services turned off";
+"KONUM_BILGISI" = "Current Location";
+"MESAFE_FORMAT" = "(%0.1fmil) %@";
