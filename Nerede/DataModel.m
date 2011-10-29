@@ -23,6 +23,7 @@
         
         if (deviceId.length < 1) {
             deviceId = [[UIDevice currentDevice] uniqueIdentifier];
+            
         }
     }
     
@@ -45,6 +46,7 @@
 -(void)postUpdate:(NSString*)newToken
 {
     [self SetPrefKey:KEY_APPID value:newToken];
+    [self SetPrefKey:KEY_DEVICEID value:deviceId];
     
     ASIFormDataRequest* request = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:KEY_SERVERURL]];
     

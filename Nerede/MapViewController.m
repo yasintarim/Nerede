@@ -5,13 +5,12 @@
 //  Created by yasin on 9/21/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
-
-
 #import "MapViewController.h"
 #import "DetailViewController.h"
+#import "defs.h"
 
 @implementation MapViewController
-@synthesize mapView;
+@synthesize m_mapView;
 @synthesize m_places;
 @synthesize m_locationManager;
 @synthesize m_userCoordinate;
@@ -19,47 +18,55 @@
 @synthesize m_slider;
 @synthesize m_placesTemp;
 
-- (id)init
+-(void)viewDidLoad
 {
-    self = [super init];
-    if (self) {
+    int sliderHeight = 20;
+    CGRect bounds = self.view.bounds;
+    CGRect mapRect = CGRectMake(0, sliderHeight, bounds.size.width, bounds.size.height - sliderHeight);
+    
+    m_mapView = [[MKMapView alloc] initWithFrame:mapRect];
+    
+    m_mapView.mapType = MKMapTypeStandard;
+    m_mapView.delegate = self;
+    m_mapView.showsUserLocation = YES;
+    m_mapView.userLocation.title = NSLocalizedString(@"KONUM_BILGISI", nil); 
+    
+    MKCoordinateRegion region;
+    region.center.latitude = 39.02;
+    region.center.longitude = 35.15;
+    region.span.latitudeDelta = 16;
+    region.span.longitudeDelta = 4;
+    
+    m_mapView.region = region;
+    [self.view addSubview:m_mapView];
+    
+    m_slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, sliderHeight)];
+    [m_slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpInside];
+    [m_slider addTarget:self action:@selector(updateTitle) forControlEvents:UIControlEventValueChanged];
+    m_slider.minimumValue = 0;
+    m_slider.maximumValue = 250;
+    m_slider.continuous = YES;
+    m_slider.value = 25.0;
+    [self.view addSubview:m_slider];
+    
+    self.navigationItem.title =  [NSString stringWithFormat:NSLocalizedString(@"MESAFE_FORMAT", nil), m_slider.value];
+    
+    if ([CLLocationManager locationServicesEnabled] == YES) {
+        
         m_places = [[NSMutableArray alloc] init];
         m_placesTemp = [[NSMutableArray alloc] init];
-            
-        mapView = [[MKMapView alloc] initWithFrame:self.view.bounds];
-        mapView.mapType = MKMapTypeStandard;
-        mapView.delegate = self;
-        mapView.showsUserLocation = YES;
-        mapView.userLocation.title = @"Şu anki yeriniz";
-        MKCoordinateRegion region;
-        region.center.latitude = 39.02;
-        region.center.longitude = 35.15;
-        region.span.latitudeDelta = 16;
-        region.span.longitudeDelta = 4;
-        
-        mapView.region = region;
-
+      
         m_locationManager = [[CLLocationManager alloc] init];
         m_locationManager.delegate = self;
         m_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         m_locationManager.distanceFilter = 10.0f;
         [m_locationManager startUpdatingLocation];
-        
-        
-        m_slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 20)];
-        [m_slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpInside];
-        [m_slider addTarget:self action:@selector(updateTitle) forControlEvents:UIControlEventValueChanged];
-        [m_slider setBackgroundColor:[UIColor clearColor]];
-        m_slider.minimumValue = 0;
-        m_slider.maximumValue = 250;
-        m_slider.continuous = YES;
-        m_slider.value = 25.0;
-        [mapView addSubview:m_slider ];
-        [self.view addSubview:mapView];
-        
     }
-
-    return self;
+    else
+    {
+        m_slider.enabled = NO;
+        self.navigationItem.title = NSLocalizedString(@"KONUM_SERVISLERI_KAPALI", nil);
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,17 +91,15 @@
     [m_slider release];
     m_slider = nil;
     
-    mapView.delegate = nil;
-    [mapView release];
-    mapView = nil;
+    m_mapView.delegate = nil;
+    [m_mapView release];
+    m_mapView = nil;
     
     [m_places release];
     m_places = nil;
     
     [m_placesTemp release];
     m_placesTemp = nil;
-    
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -126,27 +131,30 @@
 
 -(void)parseDataFromXml
 {   
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Data" ofType:@"xml"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:KEY_LOCATIONDATAFILENAME ofType:KEY_LOCATIONDATAFILETYPE];
+    
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     CXMLDocument *xmlParser = [[[CXMLDocument alloc] initWithData:data options:0 error:nil] autorelease];
-    NSArray *resultNodes = [xmlParser nodesForXPath:@"/items/item" error:nil];
+    NSArray *resultNodes = [xmlParser nodesForXPath:KEY_TITLEPATH  error:nil];
+    
     CLLocation *userLoc = [[CLLocation alloc] initWithLatitude:m_userCoordinate.latitude longitude:m_userCoordinate.longitude];
     
     for (CXMLElement *node in resultNodes) {
         CLLocationCoordinate2D loc = 
         {
-            [[[node nodeForXPath:@"latitude" error:nil] stringValue] floatValue], 
-            [[[node nodeForXPath:@"longtitude" error:nil] stringValue] floatValue]
+            [[[node nodeForXPath:KEY_LATITUDETAGNAME error:nil] stringValue] floatValue], 
+            [[[node nodeForXPath:KEY_LONGTITUDETAGNAME error:nil] stringValue] floatValue]
         };
         
         CLLocation *entityLoc = [[CLLocation alloc] initWithLatitude:loc.latitude longitude:loc.longitude];
         
         CLLocationDistance distance =  [userLoc distanceFromLocation:entityLoc];
-        NSString *subTitle = [NSString stringWithFormat:@"(%0.1fkm) %@", distance/1000, [[node nodeForXPath:@"subtitle" error:nil] stringValue]];
+        
+        NSString *subTitle = [NSString stringWithFormat:NSLocalizedString(@"MESAFE_FORMAT", nil), distance/1000, [[node nodeForXPath:KEY_SUBTITLETAGNAME error:nil] stringValue]];
         
         Entity *entity = [[Entity alloc] 
-                          initWithTitle: [[node nodeForXPath:@"title" error:nil] stringValue]  
+                          initWithTitle: [[node nodeForXPath:KEY_TITLETAGNAME error:nil] stringValue]  
                           subtitle:subTitle  coordinate:loc distance:distance];
         
         [m_places addObject:entity];
@@ -163,7 +171,6 @@
 
 -(void) performBackgroundTask
 {
-    
     NSAutoreleasePool *pool = [NSAutoreleasePool new];
    
     [self parseDataFromXml];
@@ -203,7 +210,7 @@
             zoomRect = MKMapRectUnion(zoomRect, pointRect);
         }
  }
-     [mapView setVisibleMapRect:MKMapRectMake(zoomRect.origin.x, zoomRect.origin.y, zoomRect.size.width * 1.3, zoomRect.size.height * 1.3) animated:YES ] ;
+     [m_mapView setVisibleMapRect:MKMapRectMake(zoomRect.origin.x, zoomRect.origin.y, zoomRect.size.width * 1.3, zoomRect.size.height * 1.3) animated:YES ] ;
      [arr release];
      [self performSelector:@selector(addAnnotationObjects) withObject:nil afterDelay:0.5];
  }
@@ -211,7 +218,7 @@
 
 - (void) addAnnotationObjects
 {
-    [mapView addAnnotations:m_placesTemp];
+    [m_mapView addAnnotations:m_placesTemp];
     
     [self performSelector:@selector(selectNearestAnnotation) withObject:nil afterDelay:2];
 
@@ -219,7 +226,7 @@
 - (void)selectNearestAnnotation{
     if ([m_placesTemp count] > 0) {
         Entity *e =   (Entity*)[m_placesTemp objectAtIndex:0];
-        [mapView selectAnnotation:e animated:YES];
+        [m_mapView selectAnnotation:e animated:YES];
     }
 }
 
@@ -236,19 +243,18 @@
 - (void) sliderAction:(id)sender
 {
  
-    [mapView removeAnnotations:m_places];
+    [m_mapView removeAnnotations:m_places];
     [self performSelectorInBackground:@selector(findPlacesWithinKilometer) withObject:nil];
 }
 
 - (void) updateTitle
 {
-    UINavigationController* parentController =   (UINavigationController*)self.parentViewController;
-    parentController.navigationBar.topItem.title = [NSString stringWithFormat: @"Mesafe: %.1f km", m_slider.value];
+    self.navigationItem.title =  [NSString stringWithFormat:NSLocalizedString(@"MESAFE_FORMAT", nil), m_slider.value];
 }
 
 -(void)showLoadingView
 {
-	CGRect transparentViewFrame = mapView.frame;
+	CGRect transparentViewFrame = m_mapView.frame;
 	m_transparentView = [[UIView alloc] initWithFrame:transparentViewFrame];
 	m_transparentView.backgroundColor = [UIColor lightGrayColor];
 	m_transparentView.alpha = 0.8;
@@ -273,14 +279,12 @@
 }
 - (void) findPlacesWithinKilometer
 {
-   // [self performSelectorOnMainThread:@selector(showLoadingView) withObject:nil waitUntilDone:NO];
-   // NSLog(@"%f", m_slider.value);
     [m_placesTemp removeAllObjects];
     
     
     float valinMeters = m_slider.value * 1000;
     for (Entity* e in m_places) {
-        if (e.distanceFromUser < valinMeters) {
+        if (e.distanceFromUser <= valinMeters) {
             [m_placesTemp addObject:e];
         }
     }

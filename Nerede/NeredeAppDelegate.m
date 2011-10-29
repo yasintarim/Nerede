@@ -18,15 +18,9 @@
 @synthesize m_dataModel;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    
-    
+{   
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    
-    [[UIDevice currentDevice] uniqueIdentifier];
-    
-    
     
     application.applicationIconBadgeNumber = 0;
     
@@ -36,14 +30,14 @@
     //tabBarController nesnesini olustur
     tabBarController = [[UITabBarController alloc] init];
     
+    UIViewController *homeController = [[UIViewController alloc] init];
+    homeController.view.backgroundColor = [UIColor redColor];
+    
     //haritanın görüntüleneceği viewcontroller nesnesini oluştur
     UIViewController *view1 = [[MapViewController alloc] init];
-    view1.view.backgroundColor = [UIColor yellowColor];
     
     //harita view controller nesnesini içeren navigationcontroller nesnesini oluştur
     UINavigationController *navMap = [[UINavigationController alloc] initWithRootViewController:view1];
-    
-    navMap.navigationBar.topItem.title = [NSString stringWithFormat: @"Mesafe: %.1f km", 20.0];
     
     //map için tab bar item ı oluştur
     UITabBarItem *tabMap = [[UITabBarItem alloc] initWithTitle:@"En Yakın Yer" image:nil tag: 1];
@@ -57,13 +51,11 @@
     UITabBarItem *tabEkstra = [[UITabBarItem alloc] initWithTitle:@"Ekstra" image:nil tag: 1];
     nav.tabBarItem = tabEkstra;
     
-    m_dataModel = [[DataModel alloc] init];
-
-    
-    tabBarController.viewControllers = [NSArray arrayWithObjects:navMap,nav, nil];
+    tabBarController.viewControllers = [NSArray arrayWithObjects:homeController, navMap,nav, nil];
     
     
     [window addSubview:tabBarController.view];
+    [tabEkstra release];
     [tabMap release];
     [view1 release];
     [view2 release];
@@ -115,8 +107,8 @@
 }
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    NSString *newToken = [deviceToken description];
-    [self performSelectorInBackground:@selector(postUpdate:) withObject:newToken];
+    //NSString *newToken = [deviceToken description];
+//    [self performSelectorInBackground:@selector(postUpdate:) withObject:newToken];
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
@@ -126,6 +118,7 @@
 
 -(void)postUpdate:(NSString*)newToken
 {
+    m_dataModel = [[DataModel alloc] init];
     NSString *oldToken = [m_dataModel deviceToken];
     newToken = [newToken stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
 	newToken = [newToken stringByReplacingOccurrencesOfString:@" " withString:@""];

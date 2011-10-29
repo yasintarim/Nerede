@@ -7,16 +7,256 @@
         <longtitude>28.873871500000064</longtitude>
     </item>
     <item>
+        <title>AKABE TEKSTİL</title>
+        <subtitle>Hastane cad. Ünsal Apt. Altı no:28</subtitle>
+        <latitude>38.884678069724856</latitude>
+        <longtitude>40.49618049999997</longtitude>
+    </item>
+    <item>
+        <title>ALTINBAŞAK MEFRUŞAT</title>
+        <subtitle>Altınbaşak A.Ş Saray Mh. İstasyon Cd. No:64</subtitle>
+        <latitude>38.22176956808914</latitude>
+        <longtitude>27.96626449999998</longtitude>
+    </item>
+    <item>
         <title>ARI MEFRUŞAT</title>
         <subtitle>Yenimahalle Atatürk Cad. No:61/B SOĞANLI</subtitle>
         <latitude>41.014271575194854</latitude>
         <longtitude>28.841653500000006</longtitude>
     </item>
     <item>
-        <title>ARI MEFRUŞAT</title>
-        <subtitle>Yenimahalle Atatürk Cad. No:61/B SOĞANLI</subtitle>
-        <latitude>41.014271575194854</latitude>
-        <longtitude>27.841653500000006</longtitude>
+        <title>ARZUM MEFRUŞAT</title>
+        <subtitle>İstasyon Cad. D.S.İ Soyal Tesisler Karşısı</subtitle>
+        <latitude>38.75398864600808</latitude>
+        <longtitude>41.50609299999999</longtitude>
+    </item>
+    <item>
+        <title>AYDIN PERDE</title>
+        <subtitle>Osman Yılmaz Mah. Kadıoğlu Cad. No:5</subtitle>
+        <latitude>40.7944447562</latitude>
+        <longtitude>29.422994846599977</longtitude>
+    </item>
+    <item>
+        <title>AYYILDIZ TEKSTİL</title>
+        <subtitle>Yeni Mah.İstanbul Cad. No:113</subtitle>
+        <latitude>41.40611025889505</latitude>
+        <longtitude>27.354172298919675</longtitude>
+    </item>
+    <item>
+        <title>BAKKALOĞLU TEKSTİL</title>
+        <subtitle>Semerciler Mah.Yenibosna Cad. No:15</subtitle>
+        <latitude>40.78333328736129</latitude>
+        <longtitude>30.399999999999995</longtitude>
+    </item>
+    <item>
+        <title>BARLAS PERDE</title>
+        <subtitle>
+            KAZIM KARABEKİR MAHJKazım Karabekir Mah.Atışalanı Cad.NO:99
+        </subtitle>
+        <latitude>41.068202173671445</latitude>
+        <longtitude>28.94722899999999</longtitude>
+    </item>
+    <item>
+        <title>BİRGÜR PERDE</title>
+        <subtitle>İstanbul yolu fatih sultan mehmet bulvari no:334</subtitle>
+        <latitude>39.95197470538212</latitude>
+        <longtitude>32.71031246563722</longtitude>
+    </item>
+    <item>
+        <title>BURAK TEKSTİL</title>
+        <subtitle>İMÇ 1. Blok 1437-1438</subtitle>
+        <latitude>41.005270020935065</latitude>
+        <longtitude>28.97695999999999</longtitude>
+    </item>
+    <item>
+        <title>CAN PERDE 1</title>
+        <subtitle>Kemal Paşa Mah. Molla Yakup Sok. 18/A</subtitle>
+        <latitude>40.13091236181956</latitude>
+        <longtitude>26.399665969489877</longtitude>
+    </item>
+    <item>
+        <title>CAN PERDE 2</title>
+        <subtitle>Barbaros mah.Troya cad.No:52</subtitle>
+        <latitude>46.13415921659304</latitude>
+        <longtitude>-0.1318109374999299</longtitude>
+    </item>
+    <item>
+        <title>CELAL CİN CENTER</title>
+        <subtitle>ŞEHİT KEMAL ÜNAL CADDESİ TAŞKINKÖY</subtitle>
+        <latitude>35.20761978229615</latitude>
+        <longtitude>33.348450665081735</longtitude>
+    </item>
+    <item>
+        <title>CERİTLER TEKSTİL</title>
+        <subtitle>Tahirun cad. no:72</subtitle>
+        <latitude>32.5468</latitude>
+        <longtitude>-23.20309999999995</longtitude>
+    </item>
+    <item>
+        <title>CEVAHİR MANİFATURA</title>
+        <subtitle>İNCİLLİ MAH. PLAJ CAD. NO:42</subtitle>
+        <latitude>-0.033946035306513765</latitude>
+        <longtitude>-0.03302335739135742</longtitude>
+    </item>
+    <item>
+        <title>CHÇ TEKSTİL</title>
+        <subtitle>MUTLUKENT MAH. 8.CAD.NO:33</subtitle>
+        <latitude>32.5468</latitude>
+        <longtitude>-23.20309999999995</longtitude>
+    </item>
+    <item>
+        <title>ÇETİNKAYA SÜMERPAK</title>
+        <subtitle>arifiye mah. Çarşı erler hamamı sok no:29</subtitle>
+        <latitude>39.77666674084389</latitude>
+        <longtitude>30.520555599999987</longtitude>
+    </item>
+    <item>
+        <title>DETAY TÜL PERDE</title>
+        <subtitle>Merkez mah. Reşitpaşa cad. no:88</subtitle>
+        <latitude>40.767749574543856</latitude>
+        <longtitude>29.943054999999994</longtitude>
+    </item>
+    <item>
+        <title>DİLEK MEFRUŞAT</title>
+        <subtitle>MERKEZ MAH. ATATÜRK CAD. PTT KARŞISI NO:174</subtitle>
+        <latitude>32.54863137044851</latitude>
+        <longtitude>-23.20533696231837</longtitude>
+    </item>
+    <item>
+        <title>DİZAYN PERDE</title>
+        <subtitle>Önder Cad. NO:69/D</subtitle>
+        <latitude>38.323237223574125</latitude>
+        <longtitude>27.129972756591787</longtitude>
+    </item>
+    <item>
+        <title>DOSTLAR MANİFATURA</title>
+        <subtitle>İskender mah. 121. Cadde no:54</subtitle>
+        <latitude>37.76136997598746</latitude>
+        <longtitude>30.560278000000025</longtitude>
+    </item>
+    <item>
+        <title>EKİM PERDE</title>
+        <subtitle>MUSTAFA KEMAL PAŞA MAH. E-5 YOLU ÜZERİ NO:120</subtitle>
+        <latitude>40.99708571380313</latitude>
+        <longtitude>28.702921700000047</longtitude>
+    </item>
+    <item>
+        <title>EKM PERDE</title>
+        <subtitle>
+            ATATÜRK MAH. GMK BULVARI ATASAY SİTESİ ALTI NO:632/B - 632/C
+        </subtitle>
+        <latitude>36.7632199709</latitude>
+        <longtitude>34.54522799999995</longtitude>
+    </item>
+    <item>
+        <title>ELMİRA PERDE</title>
+        <subtitle>Karani Mah. Yunus Emre Cad.Şel Apt. Altı No:118/B</subtitle>
+        <latitude>37.17160841098741</latitude>
+        <longtitude>38.81444850000002</longtitude>
+    </item>
+    <item>
+        <title>ELVANLAR TEKSTİL</title>
+        <subtitle>GMK BULVARI NO 631 BABİL KAVŞAĞI</subtitle>
+        <latitude>32.5468</latitude>
+        <longtitude>-23.20309999999995</longtitude>
+    </item>
+    <item>
+        <title>ENGİN PERDE</title>
+        <subtitle>Sahil Cad. Polis Karakolu Yanı</subtitle>
+        <latitude>32.5468</latitude>
+        <longtitude>-23.20309999999995</longtitude>
+    </item>
+    <item>
+        <title>ERENLER MEFRUŞAT</title>
+        <subtitle>Dumlupınar Mah 19Mayıs cad. no:107</subtitle>
+        <latitude>40.77196557455498</latitude>
+        <longtitude>30.009350999999977</longtitude>
+    </item>
+    <item>
+        <title>ERKAN TEKSTİL</title>
+        <subtitle>
+            Şekerhane mah. Yayla yolu Cad..Küllüoğlu Apt .no:40/E
+        </subtitle>
+        <latitude>36.933168064992984</latitude>
+        <longtitude>30.783783000000024</longtitude>
+    </item>
+    <item>
+        <title>Erkayalar</title>
+        <subtitle>Küçük sanayi bölgesi Gazi Magusa</subtitle>
+        <latitude>35.12495137265489</latitude>
+        <longtitude>33.92409847147519</longtitude>
+    </item>
+    <item>
+        <title>ERKAYALAR ESE CENTER</title>
+        <subtitle>küçük sanayi bölgesi gazi mağusa</subtitle>
+        <latitude>-74.77584711029814</latitude>
+        <longtitude>-126.38669374999996</longtitude>
+    </item>
+    <item>
+        <title>GÖÇMENTÜRK</title>
+        <subtitle>
+            Küçükhasbahçe Mah. 35 metrelik yol üzeri Keykubat Bulvarı No:103/B
+        </subtitle>
+        <latitude>36.558096105722214</latitude>
+        <longtitude>32.004161423278816</longtitude>
+    </item>
+    <item>
+        <title>GÜLLER TEKSTİL</title>
+        <subtitle>Şarkiye Mah.Süleyman Felek Cad. NO:99/B</subtitle>
+        <latitude>40.98413737771193</latitude>
+        <longtitude>37.880726427261344</longtitude>
+    </item>
+    <item>
+        <title>HAKAN MOBİLYA</title>
+        <subtitle>A.PAZARCI MAH.REMZİ GÜVEN CAD.NO:64</subtitle>
+        <latitude>32.5468</latitude>
+        <longtitude>-23.20309999999995</longtitude>
+    </item>
+    <item>
+        <title>KARABUDAK TEKSTİL</title>
+        <subtitle>
+            Yozgat bulvarı ovacık mah. Forum Alışveriş Merkezi g/03
+        </subtitle>
+        <latitude>40.01599207258823</latitude>
+        <longtitude>32.82431949999999</longtitude>
+    </item>
+    <item>
+        <title>KIRÇUVAL MEFRUŞAT</title>
+        <subtitle>Hükümet Meydanı Ziraat Bankası bitişiği No:4</subtitle>
+        <latitude>38.34814589397107</latitude>
+        <longtitude>38.31761285662651</longtitude>
+    </item>
+    <item>
+        <title>KIRKPINAR MEFRUŞAT</title>
+        <subtitle>
+            Kocasinan mah.Sadık Ahmet Cad.Ekşioğlu apt. No:34/20
+        </subtitle>
+        <latitude>41.655269489098366</latitude>
+        <longtitude>26.588973117721526</longtitude>
+    </item>
+    <item>
+        <title>KOÇ MEFRUŞAT</title>
+        <subtitle>Dolfain alışveriş mrk. No:26-27</subtitle>
+        <latitude>39.92076998835218</latitude>
+        <longtitude>32.85410999999999</longtitude>
+    </item>
+    <item>
+        <title>KUTLU TEKSTİL</title>
+        <subtitle>Gölbaşı Cad.No:19/B Adıyaman</subtitle>
+        <latitude>37.76083562897933</latitude>
+        <longtitude>38.26716452642825</longtitude>
+    </item>
+    <item>
+        <title>KÜRTÜL MEFRUŞAT</title>
+        <subtitle>Hacı Osmanlı mah. Akyar cad. no:78/A</subtitle>
+        <latitude>37.070586595025766</latitude>
+        <longtitude>36.252537999999994</longtitude>
+    </item>
+    <item>
+        <title>MASCO NARİN PERDE</title>
+        <subtitle>MASKO MOBİLYACILAR ÇARŞISI 16/B BLOK NO:37</subtitle>
+        <latitude>41.0660230488241</latitude>
+        <longtitude>28.795152499999972</longtitude>
     </item>
     <item>
         <title>MASCO NARRİN MEFRUŞAT</title>
@@ -25,10 +265,181 @@
         <longtitude>28.797990283100034</longtitude>
     </item>
     <item>
-        <title>BARLAS PERDE</title>
-        <subtitle>KAZIM KARABEKİR MAHJKazım Karabekir Mah.Atışalanı Cad.NO:99 </subtitle>
-        <latitude>41.068202173671445</latitude>
-        <longtitude>28.94722899999999</longtitude>
+        <title>MENDERES BURÇ MEFRUŞAT</title>
+        <subtitle>kemiklihan cad. no 27</subtitle>
+        <latitude>36.20450556328831</latitude>
+        <longtitude>36.16391499999999</longtitude>
     </item>
-    
+    <item>
+        <title>MERT MEFRUŞAT</title>
+        <subtitle>Kadıpaşa Mh. Kültür Cad. No:30/E</subtitle>
+        <latitude>36.88413998128374</latitude>
+        <longtitude>30.705630000000003</longtitude>
+    </item>
+    <item>
+        <title>MESA TEKSTİL</title>
+        <subtitle>Hayıtlı Mah. Halil Bey Bulvarı No:21</subtitle>
+        <latitude>37.215277843213926</latitude>
+        <longtitude>28.363611100000003</longtitude>
+    </item>
+    <item>
+        <title>METROPOL MEFRUŞAT</title>
+        <subtitle>MAHPUTPAŞA CD. NO:232 S.HAMAM</subtitle>
+        <latitude>19.6425728156</latitude>
+        <longtitude>160.31252500000005</longtitude>
+    </item>
+    <item>
+        <title>MEVSİM MEFRUŞAT</title>
+        <subtitle>Merkez mah. Menderes cad. No:11/C</subtitle>
+        <latitude>36.74398702083596</latitude>
+        <longtitude>34.516107</longtitude>
+    </item>
+    <item>
+        <title>MODOKO HOME</title>
+        <subtitle>
+            Bostancı Yolu Cad Keyap Çarşı Sitesi Yönetim Binası No:5 Dudullu
+        </subtitle>
+        <latitude>32.5468</latitude>
+        <longtitude>-23.20309999999995</longtitude>
+    </item>
+    <item>
+        <title>NEHİR PERDE</title>
+        <subtitle>Sırrı Paşa mah. Denizciler cad. no:159</subtitle>
+        <latitude>-0.014033317425608753</latitude>
+        <longtitude>-0.010235309600830078</longtitude>
+    </item>
+    <item>
+        <title>NUR MEFRUŞAT</title>
+        <subtitle>5. Etap 2.Kısım Başak Center A.V.M. no:16</subtitle>
+        <latitude>41.096745525416075</latitude>
+        <longtitude>28.79171945000002</longtitude>
+    </item>
+    <item>
+        <title>NUR MEFRUŞAT</title>
+        <subtitle>BAŞAKŞEHİR MAH.İSTİKLAL CAD.NO:9 D.NO:2</subtitle>
+        <latitude>32.5468</latitude>
+        <longtitude>-23.20309999999995</longtitude>
+    </item>
+    <item>
+        <title>OKAN PERDE</title>
+        <subtitle>Ofis GerVan Cad. Timuçin Apt. Altı No:17/A</subtitle>
+        <latitude>37.9093651157</latitude>
+        <longtitude>40.22672370370003</longtitude>
+    </item>
+    <item>
+        <title>OZANLAR TEKSTİL</title>
+        <subtitle>Ceyhun Atıf Kansu Cad. No:44/A</subtitle>
+        <latitude>39.918565100870104</latitude>
+        <longtitude>32.85371824868776</longtitude>
+    </item>
+    <item>
+        <title>ÖZKEKLİK MEFRUŞAT</title>
+        <subtitle>Tufantaşa mah. Üstün sok. no:102/c</subtitle>
+        <latitude>37.45359215621136</latitude>
+        <longtitude>35.816164500000006</longtitude>
+    </item>
+    <item>
+        <title>ÖZSOY MEFRUŞAT</title>
+        <subtitle>Sümer Mah.Prf.Turhan Güneş Cad.No:132/B</subtitle>
+        <latitude>40.9975829008</latitude>
+        <longtitude>28.895081087300014</longtitude>
+    </item>
+    <item>
+        <title>ÖZTÜRKLER MEFRUŞAT</title>
+        <subtitle>BANKACILAR CAD. 1.NOTER YANI NO:73</subtitle>
+        <latitude>37.76666671621294</latitude>
+        <longtitude>30.54999999999998</longtitude>
+    </item>
+    <item>
+        <title>PEMA PENDİK</title>
+        <subtitle>Ihlamur sok. no:27</subtitle>
+        <latitude>40.99447515174824</latitude>
+        <longtitude>29.106920999999975</longtitude>
+    </item>
+    <item>
+        <title>PERDE VE MEFRUŞAT</title>
+        <subtitle>
+            Urfa Yolu Akyıl Petrol Karşısı Fem-ŞAT Sitesi Altı NO:75
+        </subtitle>
+        <latitude>37.91292027792122</latitude>
+        <longtitude>40.234212431243904</longtitude>
+    </item>
+    <item>
+        <title>PEREK KARDEŞLER</title>
+        <subtitle>
+            Meydan mah.necip fazıl kısakürek cad. sevgi apt no:24
+        </subtitle>
+        <latitude>38.3755949866139</latitude>
+        <longtitude>34.02566444841001</longtitude>
+    </item>
+    <item>
+        <title>PEREK KARDEŞLER</title>
+        <subtitle>Hamidiye Mah. Kalealtı Sok.</subtitle>
+        <latitude>32.5468</latitude>
+        <longtitude>-23.20309999999995</longtitude>
+    </item>
+    <item>
+        <title>SARAY PERDE</title>
+        <subtitle>Ahi Çarşısı Kat:2 NO:32</subtitle>
+        <latitude>39.150000011202096</latitude>
+        <longtitude>34.166666700000015</longtitude>
+    </item>
+    <item>
+        <title>SEZA TEKSTİL</title>
+        <subtitle>
+            ÖZALPER MAH. T.ÖZAL 1.CAD. HAYAT SİTESİ A2 BLOK ALTI
+        </subtitle>
+        <latitude>38.34434659782705</latitude>
+        <longtitude>38.274758708923386</longtitude>
+    </item>
+    <item>
+        <title>SEZER PERDE</title>
+        <subtitle>CAMİKEBİR MAH. MUSTAFA KEMAL PAŞA CAD.NO:28</subtitle>
+        <latitude>40.49368532608702</latitude>
+        <longtitude>29.30784351223373</longtitude>
+    </item>
+    <item>
+        <title>ŞENGÜL MEFRUŞAT</title>
+        <subtitle>Konak mahallesi izmir yolu caddesi No:99</subtitle>
+        <latitude>40.204156154960174</latitude>
+        <longtitude>28.981417066131602</longtitude>
+    </item>
+    <item>
+        <title>ŞENGÜL MEFRUŞAT-2</title>
+        <subtitle>Cumhuriyet Cad. No: 131/B</subtitle>
+        <latitude>40.268124573239284</latitude>
+        <longtitude>29.099684999999986</longtitude>
+    </item>
+    <item>
+        <title>TAŞTEKİN MEFRUŞAT</title>
+        <subtitle>Demetevler İvedik Cad. 93/D Ankara</subtitle>
+        <latitude>39.895936156176425</latitude>
+        <longtitude>32.85155706878665</longtitude>
+    </item>
+    <item>
+        <title>TAŞTEKİN MEFRUŞAT</title>
+        <subtitle>Hoşdere Cad. NO:198/B</subtitle>
+        <latitude>39.895936156176425</latitude>
+        <longtitude>32.85155706878665</longtitude>
+    </item>
+    <item>
+        <title>TÜL PERDE</title>
+        <subtitle>CUMHURİYET MAH. EREK CAD. ASRİ İŞ HANI NO:11</subtitle>
+        <latitude>32.5468</latitude>
+        <longtitude>-23.20309999999995</longtitude>
+    </item>
+    <item>
+        <title>YILDIZ MEFRUŞAT</title>
+        <subtitle>
+            İstiklal Mah.Palalı Süleyman Cad.NO:118 Cumhuriyat Meydanı Karşısı
+        </subtitle>
+        <latitude>37.06921426446382</latitude>
+        <longtitude>36.262018153442376</longtitude>
+    </item>
+    <item>
+        <title>ZÜMRÜT MEFRUŞAT</title>
+        <subtitle>Barbaros Hayrettin Cad. No:88</subtitle>
+        <latitude>39.84682100155434</latitude>
+        <longtitude>33.515251</longtitude>
+    </item>
 </items>

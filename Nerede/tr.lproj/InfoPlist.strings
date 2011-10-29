@@ -1,0 +1,5 @@
+/* Localized versions of Info.plist keys */
+
+"KONUM_SERVISLERI_KAPALI" = "Konum servisleri";
+"KONUM_BILGISI" = "Şu anki yeriniz";
+"MESAFE_FORMAT" = "(%0.1fkm)";

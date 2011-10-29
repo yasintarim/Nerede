@@ -78,7 +78,7 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    [self.view release];
+    
     
     [m_title release];
     m_title = nil;

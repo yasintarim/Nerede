@@ -4,45 +4,45 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Nerede/DataModel.m"
-         timestampString = "341097236.402486"
+         filePath = "Nerede/NeredeAppDelegate.m"
+         timestampString = "341596322.478848"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "60"
-         endingLineNumber = "60"
-         landmarkName = "-postUpdate:"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Nerede/DataModel.m"
-         timestampString = "341097237.979601"
+         filePath = "Nerede/NeredeAppDelegate.m"
+         timestampString = "341596322.478848"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "65"
-         endingLineNumber = "65"
-         landmarkName = "-postUpdate:"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Nerede/DataModel.m"
-         timestampString = "341098470.435156"
+         filePath = "Nerede/NeredeAppDelegate.m"
+         timestampString = "341596322.478848"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "50"
-         endingLineNumber = "50"
-         landmarkName = "-postUpdate:"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -17,7 +17,6 @@
 		84151EA5142947C800DC271D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84151EA2142947C800DC271D /* CoreLocation.framework */; };
 		84151EA6142947C800DC271D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84151EA3142947C800DC271D /* MapKit.framework */; };
 		84151EA91429483B00DC271D /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84151EA81429483B00DC271D /* MapViewController.m */; };
-		84405C8D1432781300834D78 /* pink_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 84405C8C1432781300834D78 /* pink_pin.png */; };
 		845233D4144A1961002D1115 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845233D0144A1961002D1115 /* CFNetwork.framework */; };
 		845233D5144A1961002D1115 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 845233D1144A1961002D1115 /* libz.dylib */; };
 		845233D6144A1961002D1115 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845233D2144A1961002D1115 /* MobileCoreServices.framework */; };
@@ -50,6 +49,8 @@
 		84B5E4CB14549DE100B6FFE7 /* ASIS3Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B5E4B414549DE100B6FFE7 /* ASIS3Request.m */; };
 		84B5E4CC14549DE100B6FFE7 /* ASIS3ServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B5E4B614549DE100B6FFE7 /* ASIS3ServiceRequest.m */; };
 		84BC6DE11433B85F00539C2F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84BC6DE01433B85F00539C2F /* DetailViewController.m */; };
+		84C287D7145B2E880019D48C /* Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84C287D6145B2E880019D48C /* Data.xml */; };
+		84C287DB145B672E0019D48C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84C287DD145B672E0019D48C /* Localizable.strings */; };
 		84DE68FD142E883A002ABD3E /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE68FC142E883A002ABD3E /* Entity.m */; };
 		84DE691E142E948B002ABD3E /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6903142E948B002ABD3E /* CXMLDocument_CreationExtensions.m */; };
 		84DE691F142E948B002ABD3E /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6905142E948B002ABD3E /* CXMLNode_CreationExtensions.m */; };
@@ -64,7 +65,6 @@
 		84DE6928142E948B002ABD3E /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6917142E948B002ABD3E /* CXMLNode_PrivateExtensions.m */; };
 		84DE6929142E948B002ABD3E /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE6919142E948B002ABD3E /* CXMLNode_XPathExtensions.m */; };
 		84DE692A142E948B002ABD3E /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE691C142E948B002ABD3E /* CTidy.m */; };
-		84DE692D142E96A6002ABD3E /* Data.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84DE692C142E96A6002ABD3E /* Data.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,7 +83,6 @@
 		84151EA3142947C800DC271D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		84151EA71429483B00DC271D /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		84151EA81429483B00DC271D /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
-		84405C8C1432781300834D78 /* pink_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pink_pin.png; sourceTree = "<group>"; };
 		844D5B2F14537A1800A87C36 /* defs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defs.h; sourceTree = "<group>"; };
 		845233D0144A1961002D1115 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		845233D1144A1961002D1115 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -150,6 +149,10 @@
 		84B5E4B614549DE100B6FFE7 /* ASIS3ServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIS3ServiceRequest.m; sourceTree = "<group>"; };
 		84BC6DDF1433B85F00539C2F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		84BC6DE01433B85F00539C2F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		84C287D6145B2E880019D48C /* Data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Data.xml; sourceTree = "<group>"; };
+		84C287DC145B672E0019D48C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		84C287DE145B673F0019D48C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = /Users/yasin/Documents/Projects/iOs/Nerede/Nerede/tr.lproj/InfoPlist.strings; sourceTree = "<absolute>"; };
+		84C287DF145B673F0019D48C /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = /Users/yasin/Documents/Projects/iOs/Nerede/Nerede/tr.lproj/Localizable.strings; sourceTree = "<absolute>"; };
 		84DE68FB142E883A002ABD3E /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		84DE68FC142E883A002ABD3E /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
 		84DE6902142E948B002ABD3E /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
@@ -179,7 +182,6 @@
 		84DE691B142E948B002ABD3E /* CTidy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTidy.h; sourceTree = "<group>"; };
 		84DE691C142E948B002ABD3E /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
 		84DE691D142E948B002ABD3E /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
-		84DE692C142E96A6002ABD3E /* Data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Data.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,10 +260,11 @@
 		84151E83142937F800DC271D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84151E84142937F800DC271D /* Nerede-Info.plist */,
 				84151E85142937F800DC271D /* InfoPlist.strings */,
+				84151E84142937F800DC271D /* Nerede-Info.plist */,
 				84151E88142937F800DC271D /* main.m */,
 				84151E8A142937F800DC271D /* Nerede-Prefix.pch */,
+				84C287DD145B672E0019D48C /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -269,8 +272,7 @@
 		84151EA0142945F100DC271D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				84405C8C1432781300834D78 /* pink_pin.png */,
-				84DE692C142E96A6002ABD3E /* Data.xml */,
+				84C287D6145B2E880019D48C /* Data.xml */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -508,8 +510,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				84151E87142937F800DC271D /* InfoPlist.strings in Resources */,
-				84DE692D142E96A6002ABD3E /* Data.xml in Resources */,
-				84405C8D1432781300834D78 /* pink_pin.png in Resources */,
+				84C287D7145B2E880019D48C /* Data.xml in Resources */,
+				84C287DB145B672E0019D48C /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,8 +577,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				84151E86142937F800DC271D /* en */,
+				84C287DE145B673F0019D48C /* tr */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		84C287DD145B672E0019D48C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84C287DC145B672E0019D48C /* en */,
+				84C287DF145B673F0019D48C /* tr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -675,7 +687,7 @@
 				84151E98142937F800DC271D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		84151E99142937F800DC271D /* Build configuration list for PBXNativeTarget "Nerede" */ = {
 			isa = XCConfigurationList;
@@ -684,7 +696,7 @@
 				84151E9B142937F800DC271D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
