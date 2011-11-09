@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DataModel.h"
+#import "MapViewController.h"
 
 @class NeredeViewController;
 
@@ -19,6 +20,7 @@
 @property (nonatomic, retain) UITabBarController *tabBarController;
 @property (nonatomic, retain) NeredeViewController *viewController;
 @property (nonatomic, retain) DataModel *m_dataModel;
+@property (nonatomic, retain) MapViewController *m_mapViewController;
 -(void)postUpdate:(NSString*)newToken;
 
 @end

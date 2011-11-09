@@ -8,6 +8,9 @@
 
 #import "NeredeAppDelegate.h"
 #import "MapViewController.h"
+#import "HomeViewController.h"
+#import "NewsViewController.h"
+#import <dispatch/dispatch.h>
 
 
 @implementation NeredeAppDelegate
@@ -16,6 +19,7 @@
 @synthesize tabBarController;
 @synthesize viewController;
 @synthesize m_dataModel;
+@synthesize m_mapViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {   
@@ -29,35 +33,40 @@
     
     //tabBarController nesnesini olustur
     tabBarController = [[UITabBarController alloc] init];
-    
-    UIViewController *homeController = [[UIViewController alloc] init];
-    homeController.view.backgroundColor = [UIColor redColor];
+
     
     //haritanın görüntüleneceği viewcontroller nesnesini oluştur
-    UIViewController *view1 = [[MapViewController alloc] init];
+    m_mapViewController  = [[MapViewController alloc] init];
     
     //harita view controller nesnesini içeren navigationcontroller nesnesini oluştur
-    UINavigationController *navMap = [[UINavigationController alloc] initWithRootViewController:view1];
+    UINavigationController *navMap = [[UINavigationController alloc] initWithRootViewController:m_mapViewController];
     
     //map için tab bar item ı oluştur
     UITabBarItem *tabMap = [[UITabBarItem alloc] initWithTitle:@"En Yakın Yer" image:nil tag: 1];
     navMap.tabBarItem = tabMap;
     //[navMap setNavigationBarHidden:YES];    
     
-    UIViewController *view2 = [[UIViewController alloc] init];
-    view2.view.backgroundColor = [UIColor blueColor];
+    UIViewController *view2 = [[NewsViewController alloc] init];
+    //view2.view.backgroundColor = [UIColor blueColor];
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:view2];
-    UITabBarItem *tabEkstra = [[UITabBarItem alloc] initWithTitle:@"Ekstra" image:nil tag: 1];
+    UITabBarItem *tabEkstra = [[UITabBarItem alloc] initWithTitle:@"Ekstra" image:nil tag: 2];
     nav.tabBarItem = tabEkstra;
+    
+    
+    UIViewController *homeController = [[UIViewController alloc] init];
+    homeController.view.backgroundColor = [UIColor redColor];
+    
+    UITabBarItem *tabHome = [[UITabBarItem alloc] initWithTitle:@"Ana Sayfa" image:nil tag:3];
+    homeController.tabBarItem = tabHome;
     
     tabBarController.viewControllers = [NSArray arrayWithObjects:homeController, navMap,nav, nil];
     
-    
     [window addSubview:tabBarController.view];
+    [homeController release];
+    [tabHome release];
     [tabEkstra release];
     [tabMap release];
-    [view1 release];
     [view2 release];
     [nav release];
     [navMap release];
@@ -92,6 +101,8 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    
+    [m_mapViewController refresh];
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
@@ -132,10 +143,12 @@
 }
 - (void)dealloc
 {
+    
     [window release];
     [viewController release];
     [tabBarController release];
     [m_dataModel release];
+    [m_mapViewController release];
     [super dealloc];
 }
 

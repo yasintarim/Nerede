@@ -1,3 +1,4 @@
 "KONUM_SERVISLERI_KAPALI" = "Location services turned off";
 "KONUM_BILGISI" = "Current Location";
 "MESAFE_FORMAT" = "Distance: %0.1f km";
+"MESAFE_ADRES_FORMAT" = "(%0.1f km)  %@";

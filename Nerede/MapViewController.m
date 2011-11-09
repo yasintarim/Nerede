@@ -18,8 +18,33 @@
 @synthesize m_slider;
 @synthesize m_placesTemp;
 
--(void)viewDidLoad
+- (void) refresh
 {
+    if ([CLLocationManager locationServicesEnabled] == YES) {
+        
+        MKCoordinateRegion region;
+        region.center.latitude = 39.02;
+        region.center.longitude = 35.15;
+        region.span.latitudeDelta = 16;
+        region.span.longitudeDelta = 4;
+        
+        m_mapView.region = region;
+
+        m_slider.enabled = YES;
+        self.navigationItem.title =  [NSString stringWithFormat:NSLocalizedString(@"MESAFE_FORMAT", nil), m_slider.value];
+        [m_locationManager startUpdatingLocation];
+    }
+    else
+    {
+        [m_mapView removeAnnotations:m_placesTemp];
+        m_slider.enabled = NO;
+        self.navigationItem.title = NSLocalizedString(@"KONUM_SERVISLERI_KAPALI", nil);
+    }
+}
+
+-(void)loadView
+{
+    self.view = [[[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame] autorelease];
     int sliderHeight = 20;
     CGRect bounds = self.view.bounds;
     CGRect mapRect = CGRectMake(0, sliderHeight, bounds.size.width, bounds.size.height - sliderHeight);
@@ -30,18 +55,10 @@
     m_mapView.delegate = self;
     m_mapView.showsUserLocation = YES;
     m_mapView.userLocation.title = NSLocalizedString(@"KONUM_BILGISI", nil); 
-    
-    MKCoordinateRegion region;
-    region.center.latitude = 39.02;
-    region.center.longitude = 35.15;
-    region.span.latitudeDelta = 16;
-    region.span.longitudeDelta = 4;
-    
-    m_mapView.region = region;
-    [self.view addSubview:m_mapView];
+        [self.view addSubview:m_mapView];
     
     m_slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, bounds.size.width, sliderHeight)];
-    [m_slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventTouchUpInside];
+    [m_slider addTarget:self action:@selector(findPlacesWithinKilometer) forControlEvents:UIControlEventTouchUpInside];
     [m_slider addTarget:self action:@selector(updateTitle) forControlEvents:UIControlEventValueChanged];
     m_slider.minimumValue = 0;
     m_slider.maximumValue = 250;
@@ -49,26 +66,19 @@
     m_slider.value = 25.0;
     [self.view addSubview:m_slider];
     
-    self.navigationItem.title =  [NSString stringWithFormat:NSLocalizedString(@"MESAFE_FORMAT", nil), m_slider.value];
+    m_mainQueue = dispatch_get_main_queue();
     
-    if ([CLLocationManager locationServicesEnabled] == YES) {
-        
-        m_places = [[NSMutableArray alloc] init];
-        m_placesTemp = [[NSMutableArray alloc] init];
-      
-        m_locationManager = [[CLLocationManager alloc] init];
-        m_locationManager.delegate = self;
-        m_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        m_locationManager.distanceFilter = 10.0f;
-        [m_locationManager startUpdatingLocation];
-    }
-    else
-    {
-        m_slider.enabled = NO;
-        self.navigationItem.title = NSLocalizedString(@"KONUM_SERVISLERI_KAPALI", nil);
-    }
-}
 
+    m_places = [[NSMutableArray alloc] init];
+    m_placesTemp = [[NSMutableArray alloc] init];
+    
+    m_locationManager = [[CLLocationManager alloc] init];
+    m_locationManager.delegate = self;
+    m_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    m_locationManager.distanceFilter = 10.0f;
+    [self refresh];
+}
+#pragma mark - Test
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -78,6 +88,9 @@
 
 - (void)viewDidUnload
 {
+    
+    dispatch_release(m_queue);
+    dispatch_release(m_findQueue);
     
     [super viewDidUnload]; 
     
@@ -151,7 +164,7 @@
         
         CLLocationDistance distance =  [userLoc distanceFromLocation:entityLoc];
         
-        NSString *subTitle = [NSString stringWithFormat:NSLocalizedString(@"MESAFE_FORMAT", nil), distance/1000, [[node nodeForXPath:KEY_SUBTITLETAGNAME error:nil] stringValue]];
+        NSString *subTitle = [NSString stringWithFormat:NSLocalizedString(@"MESAFE_ADRES_FORMAT", nil), distance/1000, [[[node nodeForXPath:KEY_SUBTITLETAGNAME error:nil] stringValue] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
         
         Entity *entity = [[Entity alloc] 
                           initWithTitle: [[node nodeForXPath:KEY_TITLETAGNAME error:nil] stringValue]  
@@ -169,65 +182,18 @@
     //NSLog(@"%@", [error code]);
 }
 
--(void) performBackgroundTask
-{
-    NSAutoreleasePool *pool = [NSAutoreleasePool new];
-   
-    [self parseDataFromXml];
-    
-    NSArray *arr = [m_places sortedArrayUsingSelector:@selector(compare:)];
-    [m_places removeAllObjects];
-    [m_places addObjectsFromArray:arr];
-    [self findPlacesWithinKilometer];
-    [pool drain];
-   
-}
-
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     Entity* data = (Entity*) view.annotation;
-    DetailViewController *dvc = [[DetailViewController alloc] initWithTitle:data.title subtitle:data.subtitle coordinate:m_userCoordinate targetCoordinate:data.coordinate distance:data.distanceFromUser];
-    [(UINavigationController*)self.parentViewController   pushViewController:dvc animated:YES];
-    [dvc release];
-}
-
-- (void)zoomToAnnotations
- {   
-     MKMapRect zoomRect = MKMapRectNull;
-     NSMutableArray *arr = [[NSMutableArray alloc] initWithArray:m_placesTemp];
-     
-     Entity *user = [[Entity alloc] initWithTitle:@"" subtitle:@"" coordinate:m_userCoordinate distance:0];
-     [arr addObject:user];
-     [user release];
-
-     
-     for (Entity *annotation in arr) {
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
-        if (MKMapRectIsNull(zoomRect)) {
-            zoomRect = pointRect;
-        } else {
-            zoomRect = MKMapRectUnion(zoomRect, pointRect);
-        }
- }
-     [m_mapView setVisibleMapRect:MKMapRectMake(zoomRect.origin.x, zoomRect.origin.y, zoomRect.size.width * 1.3, zoomRect.size.height * 1.3) animated:YES ] ;
-     [arr release];
-     [self performSelector:@selector(addAnnotationObjects) withObject:nil afterDelay:0.5];
- }
-
-
-- (void) addAnnotationObjects
-{
-    [m_mapView addAnnotations:m_placesTemp];
+    DetailViewController *dvc = [[DetailViewController alloc] 
+                                 initWithTitle:data.title 
+                                 subtitle:data.subtitle
+                                 coordinate:m_userCoordinate 
+                                 targetCoordinate:data.coordinate 
+                                 distance:data.distanceFromUser];
     
-    [self performSelector:@selector(selectNearestAnnotation) withObject:nil afterDelay:2];
-
-}
-- (void)selectNearestAnnotation{
-    if ([m_placesTemp count] > 0) {
-        Entity *e =   (Entity*)[m_placesTemp objectAtIndex:0];
-        [m_mapView selectAnnotation:e animated:YES];
-    }
+    [(UINavigationController*)self.parentViewController  pushViewController:dvc animated:YES];
+    [dvc release];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
@@ -237,14 +203,20 @@
     }
     m_userCoordinate = newLocation.coordinate;
     [m_locationManager stopUpdatingLocation];
-    [self performSelectorInBackground:@selector(performBackgroundTask) withObject:nil];
-}
- 
-- (void) sliderAction:(id)sender
-{
- 
-    [m_mapView removeAnnotations:m_places];
-    [self performSelectorInBackground:@selector(findPlacesWithinKilometer) withObject:nil];
+    
+    if (!m_queue) {
+        m_queue = dispatch_queue_create(KEY_QUEUE_NAME, NULL);
+    }
+    
+    dispatch_async(m_queue, ^{
+    
+        [self parseDataFromXml];
+        NSArray *arr = [m_places sortedArrayUsingSelector:@selector(compare:)];
+        [m_places removeAllObjects];
+        [m_places addObjectsFromArray:arr];
+        [self findPlacesWithinKilometer];
+
+    });
 }
 
 - (void) updateTitle
@@ -279,17 +251,57 @@
 }
 - (void) findPlacesWithinKilometer
 {
-    [m_placesTemp removeAllObjects];
+    [m_mapView removeAnnotations:m_placesTemp];
+    [m_placesTemp removeAllObjects];    
     
-    
-    float valinMeters = m_slider.value * 1000;
-    for (Entity* e in m_places) {
-        if (e.distanceFromUser <= valinMeters) {
-            [m_placesTemp addObject:e];
-        }
+    if (!m_findQueue) {
+        m_findQueue = dispatch_queue_create(KEY_QUEUE_FIND, NULL);
     }
-  [self performSelectorOnMainThread:@selector(zoomToAnnotations) withObject:nil waitUntilDone:NO];
+    
+    dispatch_async(m_findQueue, ^{
+
+        
+        float valinMeters = m_slider.value * 1000;
+        //find places within given range
+        for (Entity* e in m_places) {
+            if (e.distanceFromUser <= valinMeters) {
+                [m_placesTemp addObject:e];
+            }
+        }
+        
+        //zoom to annotations range 
+        MKMapRect zoomRect = MKMapRectNull;
+        
+        NSMutableArray *arr = [[NSMutableArray alloc] initWithArray:m_placesTemp];
+
+        [arr addObject:[[[Entity alloc] initWithTitle:@"" subtitle:@"" coordinate:m_userCoordinate distance:0] autorelease]];
+
+        
+        for (Entity *annotation in arr) {
+            MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
+            if (MKMapRectIsNull(zoomRect)) {
+                zoomRect = pointRect;
+            } else {
+                zoomRect = MKMapRectUnion(zoomRect, pointRect);
+            }
+        }
+        
+        [arr release];
+        
+        //zoom in main thread and select first annotation if one found
+        dispatch_async(m_mainQueue, ^{
+
+            [m_mapView setVisibleMapRect:MKMapRectMake(zoomRect.origin.x, zoomRect.origin.y, zoomRect.size.width * 1.3, zoomRect.size.height * 1.3) animated:YES ];
+            [m_mapView addAnnotations:m_placesTemp];
+            
+            if ([m_placesTemp count] > 0) {
+                [m_mapView selectAnnotation:[m_placesTemp objectAtIndex:0] animated:YES];
+            }
+        });
+    });
 }
+
 - (void) hideLoadingView
 {
     [[self.view  viewWithTag:111] removeFromSuperview];

@@ -12,7 +12,11 @@
 #import "Entity.h"
 
 @interface MapViewController : UIViewController<MKMapViewDelegate, CLLocationManagerDelegate>
-
+{
+    dispatch_queue_t m_queue;
+    dispatch_queue_t m_findQueue;
+    dispatch_queue_t m_mainQueue;
+}
 @property (nonatomic, retain) MKMapView *m_mapView;
 @property (nonatomic, retain) NSMutableArray *m_places;
 @property (nonatomic, retain) NSMutableArray *m_placesTemp;
@@ -21,12 +25,9 @@
 @property (nonatomic, retain) UIView* m_transparentView;
 @property (nonatomic, retain) UISlider *m_slider;
 - (void) parseDataFromXml;
-- (void) performBackgroundTask;
-- (void) zoomToAnnotations;
-- (void) sliderAction:(id)sender;
 - (void) updateTitle;
 - (void) showLoadingView;
 - (void) hideLoadingView;
 - (void) findPlacesWithinKilometer;
-- (void) selectNearestAnnotation;
+- (void) refresh;
 @end
